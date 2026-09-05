@@ -1,0 +1,60 @@
+:root {
+  --ink: #10221a;
+  --muted: #5e6d65;
+  --accent: #177a4a;
+  --accent-dark: #0e5734;
+  --paper: #f7faf8;
+  --soft: #edf4ef;
+  --line: #d9e5dd;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: Arial, Helvetica, sans-serif;
+}
+a { color: inherit; }
+main { min-height: 100vh; }
+.hero {
+  min-height: 72vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5rem max(1.25rem, 8vw);
+  background: linear-gradient(135deg, #0f2c20, #174d35);
+  color: white;
+}
+.eyebrow {
+  margin: 0 0 .8rem;
+  font-size: .8rem;
+  font-weight: 800;
+  letter-spacing: .16em;
+}
+h1 { margin: 0; font-size: clamp(2.8rem, 8vw, 6.5rem); line-height: .95; max-width: 950px; }
+h2 { margin: 0 0 1.2rem; font-size: clamp(2rem, 5vw, 3.4rem); }
+h3 { margin-top: 0; }
+.heroLine { font-size: clamp(1.3rem, 3vw, 2rem); font-weight: 700; margin: 1.4rem 0 .75rem; }
+.heroCopy { max-width: 700px; font-size: 1.15rem; line-height: 1.6; color: #dceae1; }
+.actions { display: flex; gap: .8rem; flex-wrap: wrap; margin-top: 1.6rem; }
+.actions a { text-decoration: none; padding: .9rem 1.2rem; border-radius: .7rem; font-weight: 800; }
+.primary { background: white; color: var(--accent-dark); }
+.secondary { border: 1px solid rgba(255,255,255,.45); }
+.section, .report { padding: 4.5rem max(1.25rem, 8vw); }
+.soft { background: var(--soft); }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+.card { background: white; border: 1px solid var(--line); border-radius: 1rem; padding: 1.4rem; box-shadow: 0 10px 30px rgba(16,34,26,.05); }
+.card p, .note, .wideCopy, .report p { color: var(--muted); line-height: 1.65; }
+.chips { display: flex; flex-wrap: wrap; gap: .7rem; }
+.chips span { background: white; border: 1px solid var(--line); padding: .7rem .9rem; border-radius: 999px; font-weight: 700; }
+.note, .wideCopy { max-width: 850px; }
+.report { background: #12281e; color: white; }
+.report p { color: #d9e7de; max-width: 760px; }
+.report button { margin-top: 1rem; padding: .9rem 1.1rem; border-radius: .7rem; border: 0; font-weight: 800; }
+
+@media (max-width: 640px) {
+  .hero { min-height: 65vh; padding-top: 4rem; padding-bottom: 4rem; }
+  .section, .report { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+}
