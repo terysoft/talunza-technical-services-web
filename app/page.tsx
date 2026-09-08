@@ -1,17 +1,17 @@
 const leadServices = [
-  'Electrical tubing & installations',
-  'Solar installation & troubleshooting',
-  'CCTV & alarm systems',
+  'Electrical tubing, wiring & installations',
+  'Solar, inverter & battery systems',
+  'CCTV, alarms & security systems',
   'Starlink, Wi-Fi & networking',
 ];
 
 const moreServices = [
-  'Satellite installation',
+  'Satellite TV installation',
   'Computer repair',
-  'Refrigeration & appliances',
-  'Welding & fabrication',
+  'Software services',
+  'Refrigeration & domestic appliances',
+  'Welding, repairs & custom fabrication',
   'Incubator fabrication & repair',
-  'Mechanical & auto electrical',
 ];
 
 export default function HomePage() {
@@ -31,8 +31,8 @@ export default function HomePage() {
       </section>
 
       <section id="services" className="section">
-        <p className="eyebrow">KNOWN FOR THIS</p>
-        <h2>Core services</h2>
+        <p className="eyebrow">FIELD SERVICES</p>
+        <h2>Core technical services</h2>
         <div className="grid">
           {leadServices.map((service) => (
             <article className="card" key={service}>
@@ -45,12 +45,20 @@ export default function HomePage() {
 
       <section className="section soft">
         <p className="eyebrow">MORE TECHNICAL SERVICES</p>
-        <h2>A growing local service network</h2>
+        <h2>Practical support across the Lowveld</h2>
         <div className="chips">
           {moreServices.map((service) => <span key={service}>{service}</span>)}
         </div>
         <p className="note">
-          Talunza coordinates the customer journey and quality standard, including work fulfilled by verified specialist partners.
+          Talunza coordinates the customer journey and quality standard, including work fulfilled by verified specialist partners where required.
+        </p>
+      </section>
+
+      <section className="section">
+        <p className="eyebrow">MANUFACTURED PRODUCTS</p>
+        <h2>Need a Talunza-made product?</h2>
+        <p className="wideCopy">
+          Product manufacturing belongs to Talunza Forge. Technical Services installs, repairs and custom-fabricates in the field; Forge develops repeatable products such as stands, mounts, furniture and equipment structures.
         </p>
       </section>
 
@@ -66,7 +74,7 @@ export default function HomePage() {
         <p className="eyebrow">NEED HELP?</p>
         <h2>Tell us what is wrong.</h2>
         <p>
-          The full report-a-problem flow is being built here: choose a service, describe the fault, add your location, upload photos or video, then receive triage and a quotation.
+          The report-a-problem flow will let customers choose a service, describe the fault, add a location, upload photos or video, and receive triage and a quotation.
         </p>
         <button type="button" disabled>Booking form coming next</button>
       </section>
