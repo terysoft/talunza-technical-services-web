@@ -1,4 +1,5 @@
 const whatsappBase = 'https://wa.me/263777323918';
+const assetBase = '/talunza-technical-services-web';
 
 const serviceGroups = [
   {
@@ -77,7 +78,7 @@ export default function HomePage() {
     <main>
       <header className="siteHeader">
         <a className="brand" href="#top" aria-label="Talunza Technical Services home">
-          <img src="/talunza-logo.svg" alt="Talunza" />
+          <img src={`${assetBase}/talunza-logo.svg`} alt="Talunza" />
           <span>Technical Services</span>
         </a>
         <nav aria-label="Primary navigation">
@@ -241,7 +242,7 @@ export default function HomePage() {
       </section>
 
       <footer>
-        <img src="/talunza-logo.svg" alt="Talunza" />
+        <img src={`${assetBase}/talunza-logo.svg`} alt="Talunza" />
         <p>Technical Services · Chiredzi, Zimbabwe</p>
         <p>© 2026 Talunza. Practical systems for real work.</p>
       </footer>
