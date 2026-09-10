@@ -1,5 +1,5 @@
 const whatsappBase = 'https://wa.me/263777323918';
-const assetBase = '/talunza-technical-services-web';
+const assetBase = process.env.NEXT_PUBLIC_BASE_PATH ?? '/talunza-technical-services-web';
 
 const serviceGroups = [
   {
