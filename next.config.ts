@@ -1,6 +1,6 @@
 import type { NextConfig } from 'next';
 
-const repoBase = '/talunza-technical-services-web';
+const repoBase = process.env.NEXT_PUBLIC_BASE_PATH ?? '/talunza-technical-services-web';
 
 const nextConfig: NextConfig = {
   output: 'export',
