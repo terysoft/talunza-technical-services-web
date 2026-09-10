@@ -4,10 +4,7 @@ export const dynamic = 'force-static';
 
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: {
-      userAgent: '*',
-      allow: '/',
-    },
-    sitemap: 'https://technical.talunza.co.zw/sitemap.xml',
+    rules: { userAgent: '*', allow: '/' },
+    sitemap: 'https://talunza.co.zw/technical/sitemap.xml',
   };
 }
