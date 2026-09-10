@@ -11,7 +11,7 @@ const serviceGroups = [
       'Solar system installation & upgrades',
       'Solar pump installation & troubleshooting',
       'Inverters, batteries & charging systems',
-      'Generators, changeover & backup-power support',
+      'Generators, solar generators & backup-power support',
     ],
   },
   {
@@ -64,6 +64,7 @@ const process = [
 
 const sectors = ['Homes', 'Shops & offices', 'Farms', 'Schools & churches', 'Workshops', 'Lodges & hospitality', 'Remote sites', 'Small industry'];
 const areas = ['Chiredzi', 'Triangle', 'Hippo Valley', 'Mkwasine', 'Boli', 'Chingele', 'Ngundu', 'Rutenga'];
+const equipment = ['Breakers & protection', 'Solar kits & components', 'Inverters & batteries', 'Starlink kits & accessories', 'Wi-Fi access points', 'Routers & switches', 'CCTV kits & cameras', 'Cables & installation accessories', 'Mounts & brackets', 'Phone & creator accessories'];
 
 function wa(text: string) {
   return `${whatsappBase}?text=${encodeURIComponent(text)}`;
@@ -142,6 +143,18 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="section supplySection">
+        <div className="supplyGrid">
+          <div>
+            <p className="eyebrow dark">EQUIPMENT & COMPONENTS</p>
+            <h2>Supply matched to the job.</h2>
+            <p>Where practical, Talunza can source or supply compatible equipment and installation components so the customer does not have to guess what fits the system.</p>
+            <a className="textLink" href={wa('Hello Talunza. I need equipment or components. Item/system: ____. Quantity: ____. Location: ____.')}>Ask for equipment availability →</a>
+          </div>
+          <div className="chips equipmentChips">{equipment.map((x) => <span key={x}>{x}</span>)}</div>
+        </div>
+      </section>
+
       <section className="section darkSection">
         <div className="splitGrid">
           <div>
@@ -179,7 +192,7 @@ export default function HomePage() {
           <div>
             <p className="eyebrow dark">TALUNZA FORGE</p>
             <h2>When the solution needs to be made, we make it.</h2>
-            <p>Forge is the fabrication layer inside Technical Services. It supports installations, repairs and standalone products with brackets, mounts, frames, stands, enclosures and steel furniture designed around practical use.</p>
+            <p>Forge is the fabrication and small-product manufacturing layer inside Technical Services. It supports installations, repairs and standalone products with brackets, mounts, frames, stands, enclosures, phone/creator accessories and steel furniture designed around practical use.</p>
             <a className="textLink" href={wa('Hello Talunza. I need a fabricated item or custom steel solution. I will send the measurements/photos now.')}>Request a fabrication quote →</a>
           </div>
           <div className="forgeVisual" aria-label="Talunza Forge capabilities">
