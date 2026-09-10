@@ -1,0 +1,11 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Electrician & Electrical Fault Finding in Chiredzi',
+  description: 'Electrical fault finding, tripping faults, wiring, DB work, maintenance and practical electrical support for homes, shops, farms and institutions in Chiredzi and the Lowveld.',
+  alternates: { canonical: '/technical/electrical/' },
+};
+
+const wa='https://wa.me/263777323918?text=Hello%20Talunza.%20I%20need%20electrical%20help.%20Location%3A%20____.%20Problem%3A%20____.';
+
+export default function Page(){return <main><section className="hero"><div className="heroGrid"><div><p className="eyebrow">ELECTRICAL · CHIREDZI & LOWVELD</p><h1>Electrical faults diagnosed before parts are changed.</h1><p className="heroCopy">Talunza handles tripping circuits, dead circuits, wiring faults, DB issues, extensions, maintenance and practical electrical upgrades. We start with tests and evidence, then explain the repair path.</p><div className="actions"><a className="primary" href={wa}>WhatsApp the fault</a><a className="secondary" href="tel:+263777323918">Call 0777 323 918</a></div></div></div></section><section className="section"><div className="sectionHead"><p className="eyebrow dark">COMMON JOBS</p><h2>Electrical support around real symptoms.</h2></div><div className="serviceGrid"><article className="serviceCard"><h3>Tripping & no-power faults</h3><p>RCCB/earth-leakage trips, breakers, short circuits, damaged cables and intermittent supply issues.</p></article><article className="serviceCard"><h3>Wiring & DB work</h3><p>House tubing, wiring, additions, circuit changes, distribution boards and maintenance.</p></article><article className="serviceCard"><h3>Farm & business electrical</h3><p>Pumps, workshops, shops, offices and other operational loads where downtime has a real cost.</p></article><article className="serviceCard"><h3>Safety first</h3><p>Regulated work is routed through appropriately qualified personnel and any required human sign-off.</p></article></div></section><section className="contactSection"><div><p className="eyebrow">GET A DIAGNOSIS</p><h2>Send the symptom, location and photos.</h2></div><div className="contactActions"><a className="primary" href={wa}>Start on WhatsApp</a><a className="secondary" href="/technical/">All Technical Services</a></div></section></main>}
