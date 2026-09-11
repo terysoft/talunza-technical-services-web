@@ -1,0 +1,17 @@
+/* Mobile navigation and visual cleanup */
+.processGrid article > span{display:none!important}
+.processGrid h3{margin-top:.2rem}
+
+@media(max-width:960px){
+  .siteHeader{flex-wrap:wrap;gap:.65rem 1rem;padding-top:.7rem;padding-bottom:.55rem}
+  .siteHeader nav{order:3;width:100%;display:flex!important;gap:.45rem;overflow-x:auto;padding:.15rem 0 .25rem;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .siteHeader nav::-webkit-scrollbar{display:none}
+  .siteHeader nav a:not(.navCta){display:inline-flex!important;flex:0 0 auto;padding:.52rem .72rem;border:1px solid var(--line);border-radius:999px;background:#fff;color:#29404b;font-size:.78rem;white-space:nowrap}
+  .siteHeader .navCta{margin-left:auto}
+}
+
+@media(max-width:680px){
+  .siteHeader{min-height:auto}
+  .siteHeader nav{margin-top:.1rem}
+  .processGrid article{padding-top:1.25rem}
+}
