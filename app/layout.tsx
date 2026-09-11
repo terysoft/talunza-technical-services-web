@@ -1,4 +1,5 @@
 import './globals.css';
+import './mobile-overrides.css';
 import type { Metadata } from 'next';
 
 const siteUrl = 'https://talunza.co.zw/technical';
