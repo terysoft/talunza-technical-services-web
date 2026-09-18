@@ -1,50 +1,133 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Evans Tiling & Renovations</title>
-<meta name="description" content="Professional tiling and renovation services. Floors, bathrooms, kitchens, painting, waterproofing and general renovations." />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Evans Tiling & Renovations | Chiredzi, Zimbabwe</title>
+<meta name="description" content="South Africa-experienced tiling and renovation team now serving Chiredzi and the Lowveld. Floor and wall tiling, bathrooms, kitchens, waterproofing and renovations.">
 <style>
-:root{--bg:#0f1115;--card:#171a21;--soft:#222734;--text:#f6f7fb;--muted:#b8c0cf;--accent:#f3a712;--accent2:#ffd166;--line:#2e3442;--white:#fff}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}a{text-decoration:none;color:inherit}.container{width:min(1120px,92%);margin:auto}
-header{position:sticky;top:0;z-index:20;background:rgba(15,17,21,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:20px}.brand{font-weight:800;font-size:20px;letter-spacing:.2px}.brand span{color:var(--accent)}nav{display:flex;gap:20px;font-size:14px;color:var(--muted)}
-.cta{display:inline-block;background:var(--accent);color:#111;font-weight:800;padding:12px 18px;border-radius:10px}.hero{min-height:78vh;display:grid;align-items:center;background:linear-gradient(90deg,rgba(15,17,21,.97),rgba(15,17,21,.72)),radial-gradient(circle at 85% 20%,#463613 0%,transparent 35%)}
-.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center;padding:70px 0}.kicker{color:var(--accent);font-weight:800;text-transform:uppercase;letter-spacing:2px;font-size:13px}h1{font-size:clamp(40px,7vw,72px);line-height:1.03;margin:12px 0 20px}.hero p{font-size:19px;color:var(--muted);max-width:680px}
-.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}.btn-secondary{display:inline-block;border:1px solid var(--line);padding:12px 18px;border-radius:10px;color:var(--text);font-weight:700}.hero-card{background:linear-gradient(160deg,#1c2029,#12151a);border:1px solid var(--line);padding:28px;border-radius:22px;box-shadow:0 20px 60px rgba(0,0,0,.35)}
-.hero-card h3{margin-top:0}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}.stat{background:var(--soft);padding:18px;border-radius:14px;text-align:center}.stat strong{display:block;color:var(--accent2);font-size:22px}
-section{padding:78px 0}.section-title{font-size:36px;margin:0 0 12px}.section-sub{color:var(--muted);max-width:720px;margin-bottom:34px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:var(--card);border:1px solid var(--line);padding:24px;border-radius:16px}.card h3{margin:10px 0 8px}.icon{font-size:28px}
-.gallery{display:grid;grid-template-columns:2fr 1fr 1fr;gap:14px}.ph{min-height:220px;border-radius:16px;border:1px solid var(--line);background:linear-gradient(135deg,#282e3a,#151820);display:flex;align-items:center;justify-content:center;color:#8f98a9;font-weight:700;text-align:center;padding:20px}.ph.big{min-height:455px;grid-row:span 2}
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.step-num{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:#111;font-weight:900;margin-bottom:14px}.quote-wrap{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:start}
-form{background:var(--card);border:1px solid var(--line);padding:24px;border-radius:18px}label{display:block;font-size:13px;color:var(--muted);margin:14px 0 6px}input,select,textarea{width:100%;padding:13px 14px;border-radius:10px;border:1px solid var(--line);background:#101319;color:var(--text);font-size:15px}textarea{min-height:120px;resize:vertical}button{border:0;cursor:pointer;width:100%;margin-top:16px;font-size:16px}
-.badge{display:inline-block;padding:8px 12px;border-radius:999px;background:#1d2630;color:#d7e0ea;font-size:13px;margin:4px 6px 4px 0}footer{border-top:1px solid var(--line);padding:34px 0;color:var(--muted)}.float-wa{position:fixed;right:18px;bottom:18px;background:#25D366;color:#08120b;font-weight:900;padding:14px 18px;border-radius:999px;box-shadow:0 10px 30px rgba(0,0,0,.35);z-index:30}
-@media(max-width:850px){nav{display:none}.hero-grid,.quote-wrap{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.gallery{grid-template-columns:1fr 1fr}.ph.big{grid-column:1/-1;grid-row:auto;min-height:280px}.hero{min-height:auto}}
-@media(max-width:560px){.steps,.gallery,.stats{grid-template-columns:1fr}.ph.big{grid-column:auto}h1{font-size:44px}.nav .cta{padding:10px 12px;font-size:13px}}
+:root{--bg:#0d1117;--panel:#151b23;--muted:#aeb8c5;--line:#29313c;--text:#f7f9fb;--gold:#f2a900;--green:#25d366}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;line-height:1.6}a{text-decoration:none;color:inherit}.wrap{width:min(1120px,92%);margin:auto}
+header{position:sticky;top:0;z-index:20;background:rgba(13,17,23,.94);border-bottom:1px solid var(--line);backdrop-filter:blur(10px)}.nav{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:14px 0}.brand{font-weight:900}.brand span{color:var(--gold)}nav{display:flex;gap:18px;color:var(--muted);font-size:14px}
+.btn{display:inline-block;background:var(--gold);color:#111;font-weight:900;padding:12px 18px;border-radius:10px}.btn2{display:inline-block;border:1px solid var(--line);padding:12px 18px;border-radius:10px;font-weight:700}.wa{background:var(--green)}
+.hero{padding:84px 0;background:radial-gradient(circle at 82% 20%,#4a3510 0,transparent 34%)}.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:44px;align-items:center}.kicker{color:var(--gold);font-size:13px;font-weight:900;letter-spacing:2px;text-transform:uppercase}h1{font-size:clamp(42px,7vw,72px);line-height:1.02;margin:12px 0 20px}.lead{font-size:19px;color:var(--muted);max-width:700px}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.panel,.card{background:var(--panel);border:1px solid var(--line);border-radius:18px}.panel{padding:28px}.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}.trust div{background:#1c232d;padding:16px;border-radius:12px;text-align:center}.trust strong{display:block;color:var(--gold);font-size:20px}
+section{padding:74px 0}.title{font-size:36px;margin:7px 0 12px}.sub{color:var(--muted);max-width:760px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}.card{padding:24px}.card h3{margin-top:0}
+.story{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:center}.storybox{padding:28px;background:linear-gradient(145deg,#1b222c,#11161d);border:1px solid var(--line);border-radius:18px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:26px}.step{padding:22px;background:var(--panel);border:1px solid var(--line);border-radius:16px}.n{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--gold);color:#111;font-weight:900}
+.quote{display:grid;grid-template-columns:1fr 1fr;gap:28px}.quote form{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:24px}label{display:block;color:var(--muted);font-size:13px;margin:13px 0 6px}input,select,textarea{width:100%;padding:13px;border-radius:9px;border:1px solid var(--line);background:#0f141b;color:var(--text)}textarea{min-height:110px}button{border:0;width:100%;margin-top:16px;cursor:pointer;font-size:16px}
+.note{padding:16px;border-left:3px solid var(--gold);background:#141920;color:var(--muted);margin-top:20px}
+footer{padding:32px 0;border-top:1px solid var(--line);color:var(--muted)}.float{position:fixed;right:18px;bottom:18px;background:var(--green);color:#07150c;padding:14px 18px;border-radius:999px;font-weight:900}
+@media(max-width:850px){nav{display:none}.hero-grid,.story,.quote{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.steps,.trust{grid-template-columns:1fr}h1{font-size:44px}}
 </style>
 </head>
 <body>
-<header><div class="container nav"><div class="brand">EVANS <span>TILING</span> & RENOVATIONS</div><nav><a href="#services">Services</a><a href="#work">Our Work</a><a href="#process">How It Works</a><a href="#quote">Quote</a></nav><a class="cta" href="https://wa.me/27713762135" target="_blank">WhatsApp Evans</a></div></header>
+<header><div class="wrap nav"><div class="brand">EVANS <span>TILING</span> & RENOVATIONS</div><nav><a href="#about">About</a><a href="#services">Services</a><a href="#process">Process</a><a href="#quote">Quote</a></nav><a class="btn wa" href="https://wa.me/27713762135">WhatsApp</a></div></header>
+
 <main>
-<section class="hero"><div class="container hero-grid"><div><div class="kicker">Professional Tiling & Renovation Services</div><h1>Transform Your Space With Quality Workmanship.</h1><p>From beautiful tiled floors and bathrooms to full home renovations, Evans Tiling & Renovations delivers clean finishes, reliable service and practical solutions for homes and businesses.</p><div class="actions"><a class="cta" href="https://wa.me/27713762135?text=Hi%20Evans,%20I%20would%20like%20a%20quotation%20for%20tiling%20or%20renovation%20work." target="_blank">Get a WhatsApp Quote</a><a class="btn-secondary" href="tel:+27713762135">Call +27 71 376 2135</a></div><div style="margin-top:24px"><span class="badge">Floor Tiling</span><span class="badge">Bathrooms</span><span class="badge">Kitchens</span><span class="badge">Renovations</span><span class="badge">Waterproofing</span></div></div>
-<div class="hero-card"><h3>Need a quick quotation?</h3><p style="color:var(--muted)">Send Evans your room measurements, location and photos on WhatsApp. We can assess the job and arrange a site visit where required.</p><div class="stats"><div class="stat"><strong>01</strong><span>Send Photos</span></div><div class="stat"><strong>02</strong><span>Get Estimate</span></div><div class="stat"><strong>03</strong><span>Book Job</span></div></div></div></div></section>
-<section id="services"><div class="container"><div class="kicker">What We Do</div><h2 class="section-title">Tiling & Renovation Services</h2><p class="section-sub">A practical service range for residential and commercial properties.</p><div class="grid">
-<div class="card"><div class="icon">▦</div><h3>Floor & Wall Tiling</h3><p>Neat installation of ceramic, porcelain and other tiles for homes, offices, shops and outdoor areas.</p></div>
-<div class="card"><div class="icon">🚿</div><h3>Bathroom Renovations</h3><p>Bathroom tiling, shower areas, waterproofing, wall finishes and complete refresh projects.</p></div>
-<div class="card"><div class="icon">🍽️</div><h3>Kitchen Renovations</h3><p>Kitchen floors, walls, splashbacks and renovation finishing for a cleaner, modern look.</p></div>
-<div class="card"><div class="icon">🧱</div><h3>Tile Repairs</h3><p>Replace broken, cracked or loose tiles and restore damaged tiled areas.</p></div>
-<div class="card"><div class="icon">🎨</div><h3>Painting & Finishing</h3><p>Interior and exterior finishing work to complement renovation projects.</p></div>
-<div class="card"><div class="icon">🏠</div><h3>General Renovations</h3><p>Property improvement work including repairs, surface preparation and selected renovation services.</p></div>
-</div></div></section>
-<section id="work" style="background:#11141a"><div class="container"><div class="kicker">Project Gallery</div><h2 class="section-title">See the Quality</h2><p class="section-sub">Replace these placeholders with Evans' real before-and-after project photos for maximum trust.</p><div class="gallery"><div class="ph big">MAIN PROJECT PHOTO<br>Before / After bathroom or floor tiling</div><div class="ph">Kitchen Tiling</div><div class="ph">Bathroom Renovation</div><div class="ph">Floor Tiling</div><div class="ph">Renovation Finish</div></div></div></section>
-<section id="process"><div class="container"><div class="kicker">Simple Process</div><h2 class="section-title">From Enquiry to Finished Job</h2><div class="steps"><div class="card"><div class="step-num">1</div><h3>Contact</h3><p>WhatsApp or call Evans and describe the work you need.</p></div><div class="card"><div class="step-num">2</div><h3>Assessment</h3><p>Send photos and measurements or arrange a site inspection.</p></div><div class="card"><div class="step-num">3</div><h3>Quotation</h3><p>Receive a clear quotation based on the actual scope of work.</p></div><div class="card"><div class="step-num">4</div><h3>Installation</h3><p>The job is completed with focus on alignment, finish and cleanliness.</p></div></div></div></section>
-<section id="quote" style="background:#11141a"><div class="container quote-wrap"><div><div class="kicker">Request a Quote</div><h2 class="section-title">Tell Us About Your Project</h2><p class="section-sub">The quickest way is WhatsApp. Include photos, measurements, your area and what you want changed.</p><div class="card"><h3>Evans Tiling & Renovations</h3><p><strong>Phone / WhatsApp:</strong><br>+27 71 376 2135</p><p style="color:var(--muted)">Service area can be added once confirmed with the client.</p><a class="cta" href="https://wa.me/27713762135" target="_blank">Chat on WhatsApp</a></div></div>
-<form onsubmit="sendWhatsApp(event)"><h3 style="margin-top:0">Quick Quote Form</h3><label>Your Name</label><input id="name" required placeholder="e.g. Thabo" /><label>Service Needed</label><select id="service"><option>Floor Tiling</option><option>Bathroom Renovation</option><option>Kitchen Renovation</option><option>Tile Repairs</option><option>Painting</option><option>General Renovation</option></select><label>Area / Location</label><input id="location" placeholder="Your suburb or town" /><label>Project Details</label><textarea id="details" placeholder="Approximate room size, tile size, old tiles to remove, etc."></textarea><button class="cta" type="submit">Send Request on WhatsApp</button></form></div></section>
+<section class="hero">
+<div class="wrap hero-grid">
+<div>
+<div class="kicker">Now launching in Chiredzi, Zimbabwe</div>
+<h1>South Africa Experience. Built for Zimbabwe.</h1>
+<p class="lead">Evans Tiling & Renovations brings hands-on tiling and renovation experience gained in South Africa to homes and businesses in Chiredzi and the Lowveld — with a focus on clean finishes, proper preparation and reliable workmanship.</p>
+<div class="actions">
+<a class="btn wa" href="https://wa.me/27713762135?text=Hi%20Evans%2C%20I%20need%20a%20quote%20for%20a%20tiling%20or%20renovation%20job%20in%20Zimbabwe.">Get a WhatsApp Quote</a>
+<a class="btn2" href="tel:+27713762135">Call +27 71 376 2135</a>
+</div>
+</div>
+<div class="panel">
+<h3>Starting local. Building a trusted Zimbabwean name.</h3>
+<p class="sub">We are starting from Chiredzi, proving our workmanship job by job, documenting every project and expanding across the Lowveld as demand grows.</p>
+<div class="trust">
+<div><strong>SA</strong>Work Experience</div>
+<div><strong>CHIREDZI</strong>Launch Base</div>
+<div><strong>ZW</strong>Growth Focus</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="about">
+<div class="wrap story">
+<div>
+<div class="kicker">Our story</div>
+<h2 class="title">Experienced abroad. Rebuilding at home.</h2>
+<p class="sub">After working in South Africa, the team is now developing Evans Tiling & Renovations as a Zimbabwe-based tiling and renovation business. Chiredzi is the starting point: local homes, shops, lodges, offices and property upgrades.</p>
+<p class="sub">We are not claiming a large Zimbabwe portfolio before we have earned one. Our goal is simple: bring the standards and experience we have gained into the local market, complete good work, photograph it properly, collect references and grow through reputation.</p>
+</div>
+<div class="storybox">
+<h3>What clients should expect</h3>
+<p>✓ Site assessment before final quotation</p>
+<p>✓ Proper surface preparation</p>
+<p>✓ Straight lines, consistent spacing and clean finishing</p>
+<p>✓ Waterproofing attention in wet areas</p>
+<p>✓ Clear communication through WhatsApp</p>
+<p>✓ Before-and-after project records</p>
+</div>
+</div>
+</section>
+
+<section id="services" style="background:#10151c">
+<div class="wrap">
+<div class="kicker">Services</div>
+<h2 class="title">Start with tiling. Grow into complete renovations.</h2>
+<p class="sub">The launch focus is high-quality tiling and closely related finishing work. Larger renovation packages will be taken on where the team can control workmanship and sequencing.</p>
+<div class="grid">
+<div class="card"><h3>Floor & Wall Tiling</h3><p>Homes, shops, offices, passages, kitchens, bathrooms, verandas and selected commercial spaces.</p></div>
+<div class="card"><h3>Bathroom Renovations</h3><p>Strip-out, preparation, waterproofing, tiling and coordinated bathroom finishing.</p></div>
+<div class="card"><h3>Kitchen Tiling</h3><p>Floors, splashbacks, wall finishes and refurbishment work.</p></div>
+<div class="card"><h3>Repairs & Re-tiling</h3><p>Loose, damaged or cracked tile replacement, re-grouting and problem-area repairs.</p></div>
+<div class="card"><h3>Waterproofing & Preparation</h3><p>Wet-area preparation, screed correction and substrate checks before tiling.</p></div>
+<div class="card"><h3>Renovation Finishing</h3><p>Painting and selected finishing works around tiling and room-renovation projects.</p></div>
+</div>
+</div>
+</section>
+
+<section id="process">
+<div class="wrap">
+<div class="kicker">How we work</div>
+<h2 class="title">A professional process from the first message.</h2>
+<div class="steps">
+<div class="step"><div class="n">1</div><h3>Send the job</h3><p>WhatsApp photos, location, measurements and what you want done.</p></div>
+<div class="step"><div class="n">2</div><h3>Site assessment</h3><p>We confirm measurements, surface condition, access and preparation required.</p></div>
+<div class="step"><div class="n">3</div><h3>Clear quotation</h3><p>Labour, scope and material responsibilities are agreed before work starts.</p></div>
+<div class="step"><div class="n">4</div><h3>Build the record</h3><p>The finished job is inspected, photographed and used to build a real Zimbabwe portfolio.</p></div>
+</div>
+<div class="note"><strong>Launch area:</strong> Chiredzi first, then the wider Lowveld and other Zimbabwe locations as capacity grows.</div>
+</div>
+</section>
+
+<section id="quote" style="background:#10151c">
+<div class="wrap quote">
+<div>
+<div class="kicker">Request a quote</div>
+<h2 class="title">Have a Chiredzi project?</h2>
+<p class="sub">Send Evans the location, photos and approximate measurements. For bigger jobs, arrange a site inspection before the final quotation.</p>
+<div class="panel">
+<h3>Evans Tiling & Renovations</h3>
+<p><strong>Phone / WhatsApp:</strong><br>+27 71 376 2135</p>
+<p class="sub">Zimbabwe launch: Chiredzi & Lowveld</p>
+<a class="btn wa" href="https://wa.me/27713762135">Chat on WhatsApp</a>
+</div>
+</div>
+<form onsubmit="sendWA(event)">
+<h3 style="margin-top:0">Quick Job Enquiry</h3>
+<label>Name</label><input id="name" required>
+<label>Service</label>
+<select id="service"><option>Floor / Wall Tiling</option><option>Bathroom Renovation</option><option>Kitchen Tiling</option><option>Tile Repair</option><option>Waterproofing / Preparation</option><option>General Renovation</option></select>
+<label>Location</label><input id="loc" placeholder="e.g. Chiredzi, Hippo Valley, Triangle">
+<label>Project details</label><textarea id="details" placeholder="Room size, tile size, old tiles to remove, photos available, etc."></textarea>
+<button class="btn wa" type="submit">Send to Evans on WhatsApp</button>
+</form>
+</div>
+</section>
 </main>
-<footer><div class="container"><strong style="color:var(--text)">Evans Tiling & Renovations</strong><br>Professional tiling and renovation services.<br>© 2026 Evans Tiling & Renovations.</div></footer>
-<a class="float-wa" href="https://wa.me/27713762135" target="_blank">WhatsApp</a>
+
+<footer><div class="wrap"><strong style="color:#fff">Evans Tiling & Renovations</strong><br>South Africa-experienced tiling and renovation services launching from Chiredzi, Zimbabwe.<br>© 2026</div></footer>
+<a class="float" href="https://wa.me/27713762135">WhatsApp</a>
 <script>
-function sendWhatsApp(e){e.preventDefault();const name=document.getElementById('name').value;const service=document.getElementById('service').value;const location=document.getElementById('location').value;const details=document.getElementById('details').value;const msg='Hi Evans, I would like a quotation.%0A%0AName: '+encodeURIComponent(name)+'%0AService: '+encodeURIComponent(service)+'%0ALocation: '+encodeURIComponent(location)+'%0AProject details: '+encodeURIComponent(details);window.open('https://wa.me/27713762135?text='+msg,'_blank');}
+function sendWA(e){e.preventDefault();const n=document.getElementById('name').value,s=document.getElementById('service').value,l=document.getElementById('loc').value,d=document.getElementById('details').value;const m='Hi Evans, I would like a quotation.%0A%0AName: '+encodeURIComponent(n)+'%0AService: '+encodeURIComponent(s)+'%0ALocation: '+encodeURIComponent(l)+'%0AProject details: '+encodeURIComponent(d);window.open('https://wa.me/27713762135?text='+m,'_blank')}
 </script>
-</body>
-</html>
+</body></html>
