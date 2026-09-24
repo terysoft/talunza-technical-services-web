@@ -11,6 +11,16 @@ const wa = (text: string) => `https://wa.me/${phone}?text=${encodeURIComponent(t
 
 const packages = [
   {
+    id: 'starlink-connect',
+    tag: 'STARLINK',
+    icon: '✦',
+    name: 'TALUNZA STARLINK CONNECT',
+    problem: 'Get the Starlink kit supplied, mounted and configured as one installation.',
+    price: 'US$300 supplied & installed',
+    detail: 'Standard Starlink supply and installation package. Pay US$120 deposit, then the remaining US$180 in 6 monthly payments of US$30. Ethernet cable is charged separately at US$0.70 per metre. Starlink service subscription is separate.',
+    best: 'Homes · bars · schools · farms · lodges',
+  },
+  {
     id: 'whole-home',
     tag: 'HOME',
     icon: '⌂',
@@ -111,6 +121,7 @@ export default function Page() {
           </div>
           <aside className="heroPanel signalPanel">
             <p>CHOOSE THE PROBLEM</p>
+            <a href="#starlink-connect"><strong>Need Starlink</strong><span>Supply + installation →</span></a>
             <a href="#whole-home"><strong>Dead rooms</strong><span>Whole-home Wi-Fi →</span></a>
             <a href="#hotspot-pay"><strong>Sell / control Wi-Fi</strong><span>Voucher hotspot →</span></a>
             <a href="#school-start"><strong>Connect a school</strong><span>Managed campus Wi-Fi →</span></a>
@@ -121,7 +132,7 @@ export default function Page() {
       </section>
 
       <section className="signalBand" aria-label="Connectivity services">
-        <span>HOME WI-FI</span><i></i><span>VOUCHERS</span><i></i><span>SCHOOLS</span><i></i><span>LONG-DISTANCE LINKS</span><i></i><span>LTE RESCUE</span>
+        <span>STARLINK</span><i></i><span>HOME WI-FI</span><i></i><span>VOUCHERS</span><i></i><span>SCHOOLS</span><i></i><span>LONG-DISTANCE LINKS</span><i></i><span>LTE RESCUE</span>
       </section>
 
       <section className="section packagesSection">
