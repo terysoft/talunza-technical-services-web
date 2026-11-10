@@ -31,13 +31,47 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1, 'max-video-preview': -1 } },
 };
 
+// A service-area business: customers receive field support, not an advertised walk-in shop.
+// Preserve the canonical company identity and do not manufacture a street address or hours.
+const mobileServiceAreas = ['Chiredzi', 'Triangle', 'Hippo Valley', 'Mkwasine', 'Boli', 'Chingele', 'Ngundu', 'Rutenga'];
 const localBusinessSchema = {
-  '@context': 'https://schema.org', '@type': 'LocalBusiness',
-  name: 'Talunza Technical Services', url: `${siteUrl}/`, telephone: '+263777323918',
-  areaServed: ['Chiredzi', 'Triangle', 'Hippo Valley', 'Mkwasine', 'Boli', 'Chingele', 'Ngundu', 'Rutenga'],
-  address: { '@type': 'PostalAddress', addressLocality: 'Chiredzi', addressRegion: 'Masvingo', addressCountry: 'ZW' },
-  description: 'Technical installation, fault finding, repair, solar, electrical, connectivity, computer support and practical fabrication for Chiredzi and the Lowveld.',
-  parentOrganization: { '@type': 'Organization', name: 'Talunza', url: 'https://talunza.co.zw/' },
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'LocalBusiness',
+      '@id': `${siteUrl}/#business`,
+      name: 'Talunza Technical Services',
+      url: `${siteUrl}/`,
+      telephone: '+263777323918',
+      areaServed: mobileServiceAreas,
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Chiredzi',
+        addressRegion: 'Masvingo',
+        addressCountry: 'ZW',
+      },
+      description: 'Mobile technical installation, diagnostics and repair for homes, businesses, farms and institutions around Chiredzi and the Lowveld.',
+      parentOrganization: { '@type': 'Organization', name: 'Talunza', url: 'https://talunza.co.zw/' },
+    },
+    {
+      '@type': 'Service',
+      '@id': `${siteUrl}/#mobile-service`,
+      name: 'Talunza Mobile Technical Services',
+      serviceType: [
+        'Electrical fault finding and wiring',
+        'Solar systems, inverters and water pumps',
+        'Starlink, networking and Wi-Fi',
+        'CCTV installation and repair',
+        'Computer repair and software support',
+        'Practical welding and fabrication',
+      ],
+      providerMobility: 'dynamic',
+      areaServed: mobileServiceAreas,
+      provider: { '@id': `${siteUrl}/#business` },
+      url: `${siteUrl}/`,
+      description: 'Talunza primarily travels to customer sites for technical work and provides selected support remotely. Availability and job costs are confirmed before dispatch.',
+    },
+  ],
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
