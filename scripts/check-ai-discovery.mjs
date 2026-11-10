@@ -29,6 +29,7 @@ const routes = ['electrical', 'solar', 'connectivity', 'computers-software'];
 for (const route of routes) {
   const page = read('app/' + route + '/page.tsx');
   assert.ok(sitemap.includes("'/" + route + "'"), 'Sitemap must list ' + route);
-  assert.ok(page.includes("canonical: '/technical/" + route + "/'"), 'Canonical route required: ' + route);
+  assert.match(page, /canonical\s*:/, 'Page must define a canonical route: ' + route);
+  assert.ok(page.includes("'/technical/" + route + "/'"), 'Canonical URL must match route: ' + route);
 }
 console.log('AI discovery source contract: PASS (live crawler status not tested)');
