@@ -7,7 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const paths = ['', '/electrical', '/solar', '/connectivity', '/computers-software'];
   return paths.map((path, index) => ({
     url: `${base}${path}/`,
-    lastModified: new Date('2026-09-11T00:00:00Z'),
+    // No invented freshness: add lastModified only when sourced from actual page revisions.
     changeFrequency: index === 0 ? 'weekly' : 'monthly',
     priority: index === 0 ? 0.9 : 0.8,
   }));
