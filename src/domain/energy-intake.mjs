@@ -14,7 +14,7 @@ export function validateIntake(raw) {
   const contactPhone=text(raw.contactPhone,40);
   if(!REQUEST_TYPES.includes(serviceType))errors.push('service_type_invalid');
   if(locality.length<2)errors.push('locality_required');
-  if(contactPhone.length<5&&!raw.alternativeCallback)errors.push('callback_required');
+  if(contactPhone.length<5)errors.push('callback_required');
   if(raw.contactConsent!==true)errors.push('contact_consent_required');
   if(raw.marketingConsent===true&&raw.contactConsent!==true)errors.push('invalid_marketing_consent');
   const appliances=Array.isArray(raw.appliances)?raw.appliances:[];
@@ -53,8 +53,10 @@ export function installationLabourUsd({dcOnly=false,verifiedBatteryVoltage=null}
   return LABOUR_BY_VOLTAGE_USD[verifiedBatteryVoltage];
 }
 
-export function quoteDraft({approvedEquipmentRetailUsd,materialsUsd,siteTravelUsd,labourUsd,priceApproved,siteReviewed}) {
+export function quoteDraft({approvedEquipmentRetailUsd,materialsUsd,siteTravelUsd,dcOnly=false,verifiedBatteryVoltage=null,priceApproved,siteReviewed}) {
   if(priceApproved!==true||siteReviewed!==true)return {status:'HOLD',reason:'approval_or_site_review_missing'};
+  const labourUsd=installationLabourUsd({dcOnly,verifiedBatteryVoltage});
+  if(typeof labourUsd!=='number')return {status:'HOLD',reason:'verified_battery_voltage_required'};
   const vals=[approvedEquipmentRetailUsd,materialsUsd,siteTravelUsd,labourUsd];
   if(vals.some(v=>typeof v!=='number'||!Number.isFinite(v)||v<0||
     Math.abs(v*100-Math.round(v*100))>1e-7))return {status:'HOLD',reason:'invalid_or_unassessed_money'};
