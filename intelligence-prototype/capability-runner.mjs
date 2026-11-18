@@ -67,7 +67,7 @@ const SERVICE_FAMILIES = Object.freeze([
   },
 ]);
 
-const HAZARD = /\b(smoke|sparks?|electric shock|electrocut|fire|burning smell|exposed live|hot cable|overheat|burnt wire)\b/i;
+const HAZARD = /\b(?:smok(?:e|ing|es|ed)|spark(?:s|ing|ed)?|electric shock|electrocut(?:ion|ed|e|ing)?|fire|flames?|burn(?:ing|t)? smell|smell(?:s|ing)? (?:like )?burning|exposed live|hot (?:cable|wire)s?|(?:cable|wire)s? (?:is |getting |gets )?hot|overheat(?:ing|ed|s)?|burnt wire|arc(?:ing|s)?)\b/i;
 
 function validRequestId(value) {
   return typeof value === 'string' && /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(value);
