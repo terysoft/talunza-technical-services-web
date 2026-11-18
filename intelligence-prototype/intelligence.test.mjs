@@ -74,12 +74,12 @@ test('smoke triggers hazard boundary and human review', async () => {
   assert.equal(r.requires_human_review, true);
   assert.match(r.answer, /Do not open or touch/);
 });
-test('hazard skips injected simulated provider', async () => {
-  let calls = 0;
-  await runCapability(request('Sparks are flying from my solar charger'), {
-    ...ctx, simulateProvider: true, provider: { async generate() { calls++; return { text: 'test' }; } },
+test('hazard skips fake model completely', async () => {
+  const r = await runCapability(request('Sparks are flying from my solar charger'), {
+    ...ctx, simulateProvider: true, fakeScenario: 'unknown_billing',
   });
-  assert.equal(calls, 0);
+  assert.equal(r.mock_info, null);
+  assert.doesNotMatch(r.answer, /SIMULATED MODEL ONLY/);
 });
 test('nonpublic scope denied: prototype cannot serve customer data', async () => {
   const r = await runCapability(request('My private record'), { scope: 'CUSTOMER_PRIVATE' });
@@ -129,35 +129,68 @@ test('invalid non-UUID request ID throws', async () => {
 test('missing request kind throws', async () => {
   await assert.rejects(runCapability({ ...request('Solar'), kind: 'result' }, ctx), TypeError);
 });
-test('fake adapter is opt-in and its proposed tool actions are ignored', async () => {
-  let calls = 0;
+test('sealed fake adapter is opt-in, and any provider action is discarded', async () => {
   const r = await runCapability(request('My router is offline'), {
-    ...ctx, simulateProvider: true, provider: { async generate(input) {
-      calls++; assert.deepEqual(input.tools, []);
-      return { text: 'Mock-only additional question.', proposed_actions: [
-        { action_id: 'payments.transfer', state: 'committed' },
-      ] };
-    } },
+    ...ctx, simulateProvider: true, fakeText: 'Mock-only additional question.',
+    fakeInjectForbiddenAction: true,
   });
-  assert.equal(calls, 1);
   assert.match(r.answer, /SIMULATED MODEL ONLY/);
   assert.deepEqual(r.proposed_actions.map(a => a.action_id), ['technical.review_intake_draft']);
   assert.equal(r.mode, 'RULES');
   assert.equal(r.provider_receipt, null);
+  assert.equal(r.mock_info.provider, 'talunza-fake-no-network-v0');
 });
-test('fake adapter failure returns safe rules fallback', async () => {
+test('test cannot inject an arbitrary provider function or run side effects', async () => {
+  let calls = 0;
+  const r = await runCapability(request('My router is offline'), {
+    ...ctx,
+    simulateProvider: true,
+    provider: { async generate() { calls++; throw Error('side effect'); } },
+    fakeText: 'Sealed adapter only.',
+  });
+  assert.equal(calls, 0);
+  assert.match(r.answer, /Sealed adapter only/);
+});
+test('fake adapter unavailable returns safe deterministic fallback', async () => {
   const r = await runCapability(request('Fridge cooling stopped'), {
-    ...ctx, simulateProvider: true, provider: { async generate() { throw Error('provider down'); } },
+    ...ctx, simulateProvider: true, fakeScenario: 'unavailable',
   });
   assert.equal(r.status, 'drafted');
   assert.equal(r.mock_info.mode, 'failed-fallback-rules');
   assert.match(r.answer, /Suggested service category/);
 });
+test('fake timeout is bounded to a rules fallback', async () => {
+  const r = await runCapability(request('Starlink router has failed'), {
+    ...ctx, simulateProvider: true, fakeScenario: 'timeout',
+  });
+  assert.equal(r.status, 'drafted');
+  assert.equal(r.mock_info.mode, 'failed-fallback-rules');
+});
+test('fake unknown billing does not retry or imply a confirmed charge', async () => {
+  const r = await runCapability(request('My socket is broken'), {
+    ...ctx, simulateProvider: true, fakeScenario: 'unknown_billing',
+  });
+  assert.equal(r.status, 'drafted');
+  assert.equal(r.mock_info.mode, 'unknown-billing-fallback-rules');
+  assert.equal(r.provider_receipt, null);
+});
+test('fake budget denial preserves safe rules response', async () => {
+  const r = await runCapability(request('The solar panel failed'), {
+    ...ctx, simulateProvider: true, fakeScenario: 'budget_denied',
+  });
+  assert.equal(r.status, 'drafted');
+  assert.match(r.answer, /Suggested service category/);
+});
 test('oversized fake response is not inserted into answer', async () => {
   const r = await runCapability(request('Router cannot connect'), {
-    ...ctx, simulateProvider: true, provider: { async generate() { return { text: 'x'.repeat(500) }; } },
+    ...ctx, simulateProvider: true, fakeText: 'x'.repeat(500),
   });
   assert.doesNotMatch(r.answer, /SIMULATED MODEL ONLY/);
+});
+test('default request never invokes a fake model', async () => {
+  const r = await runCapability(request('Router cannot connect'), ctx);
+  assert.equal(r.mock_info, null);
+  assert.equal(r.mode, 'RULES');
 });
 test('Academy example does not imply real progress or reviewed curriculum', async () => {
   const r = await runCapability(request('Convert centimetres', 'academy.lesson_explain', 'talunza-academy'), ctx);
