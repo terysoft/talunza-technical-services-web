@@ -8,7 +8,7 @@
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "check": "npm run typecheck && npm run build",
-    "test:domain": "node --test src/domain/energy-intake.test.mjs"
+    "test:domain": "node --test src/domain/*.test.mjs"
   },
   "dependencies": {
     "next": "15.5.2",
