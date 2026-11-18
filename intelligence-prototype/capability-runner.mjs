@@ -1,3 +1,5 @@
+import { createFakeProvider } from './fake-provider.mjs';
+
 /**
  * TALUNZA capability prototype v0 — no keys, network, database or side effects.
  * Node 20+ ESM; works with a static client preview. NOT an authentication boundary.
@@ -162,7 +164,7 @@ function academyDraft(text) {
  * Any non-public use must be denied and reimplemented behind a trusted server.
  *
  * @param {{schema_version:string,request_id:string,capability_id:string,input:{text:string}}} request
- * @param {{scope:'PUBLIC_SYNTHETIC', provider?: {generate:Function}, simulateProvider?:boolean}} options
+ * @param {{scope:'PUBLIC_SYNTHETIC', simulateProvider?:boolean, fakeScenario?:string, fakeText?:string, fakeInjectForbiddenAction?:boolean}} options
  */
 export async function runCapability(request, options = {}) {
   const id = request?.request_id;
@@ -191,22 +193,33 @@ export async function runCapability(request, options = {}) {
   let answer = draft.answer;
   let mockInfo = null;
 
-  // Explicitly test adapter compatibility without external inference or network.
-  // Never accept mock provider tool proposals, permissions, action state or evidence.
-  if (options.simulateProvider === true && options.provider && !draft.needsUrgentReview) {
+  // Only the sealed fake adapter is accepted. No client-injected provider functions,
+  // model SDKs, network calls, AI side effects, arbitrary tools or billing can run here.
+  // This entire path is synthetic; it never becomes an authenticated serving endpoint.
+  if (options.simulateProvider === true && !draft.needsUrgentReview) {
     try {
-      const response = await options.provider.generate({
+      const provider = createFakeProvider({
+        scenario: options.fakeScenario ?? 'none',
+        responseText: options.fakeText ?? 'This is a fictional model response for UI testing.',
+        injectForbiddenAction: options.fakeInjectForbiddenAction === true,
+      });
+      const response = await provider.generate({
         capability_id: capId,
         input: text,
         max_output_chars: 240,
         tools: [],
       });
+      // The provider cannot change the authorised capability's evidence, actions or grants.
       if (typeof response?.text === 'string' && response.text.length > 0 && response.text.length <= 240) {
         answer += ` [SIMULATED MODEL ONLY: ${response.text}]`;
-        mockInfo = { provider: 'synthetic-adapter', mode: 'mock-no-billing' };
+        mockInfo = { provider: provider.id, mode: 'mock-no-billing' };
       }
-    } catch {
-      mockInfo = { provider: 'synthetic-adapter', mode: 'failed-fallback-rules' };
+    } catch (error) {
+      const code = error?.code;
+      mockInfo = {
+        provider: 'talunza-fake-no-network-v0',
+        mode: code === 'unknown_billing' ? 'unknown-billing-fallback-rules' : 'failed-fallback-rules',
+      };
     }
   }
 
