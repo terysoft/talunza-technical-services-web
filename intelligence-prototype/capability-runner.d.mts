@@ -45,5 +45,5 @@ export declare const MANIFESTS: Readonly<Record<CapabilityId, {
 }>>;
 export declare function runCapability(
   request: CapabilityRequest,
-  options: { scope: SyntheticScope; provider?: { generate(data: unknown): Promise<unknown> }; simulateProvider?: boolean }
+  options: { scope: SyntheticScope; simulateProvider?: boolean; fakeScenario?: 'none' | 'timeout' | 'unavailable' | 'unknown_billing' | 'budget_denied'; fakeText?: string; fakeInjectForbiddenAction?: boolean }
 ): Promise<CapabilityResult>;
