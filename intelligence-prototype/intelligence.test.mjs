@@ -67,7 +67,7 @@ test('welding intake routes to fabrication', async () => {
 test('unknown fault prompts classification question, not invented diagnosis', async () => {
   const r = await runCapability(request('Strange problem with my gadget'), ctx);
   assert.equal(r.draft_category, 'other');
-  assert.match(r.answer, /What.*equipment/);
+  assert.match(r.answer, /Which equipment/);
 });
 test('smoke triggers hazard boundary and human review', async () => {
   const r = await runCapability(request('There is smoke coming from the inverter'), ctx);
