@@ -169,6 +169,13 @@ export async function runCapability(request, options = {}) {
   const capId = request?.capability_id;
   if (!validRequestId(id)) throw new TypeError('request_id must be a UUID');
   if (request.kind !== 'request' || request.schema_version !== '1.0') throw new TypeError('Unsupported request envelope');
+  const permittedEnvelopeFields = new Set(['kind', 'schema_version', 'request_id', 'app_id', 'capability_id', 'locale', 'input']);
+  if (Object.keys(request).some((field) => !permittedEnvelopeFields.has(field))
+      || !request.input || typeof request.input !== 'object' || Array.isArray(request.input)
+      || Object.keys(request.input).some((field) => field !== 'text')) {
+    return resultBase({ requestId: id, capabilityId: String(capId), status: 'denied',
+      answer: 'Unexpected request fields are not admitted in the public prototype.', errorCode: 'malformed_envelope' });
+  }
   const manifest = Object.hasOwn(MANIFESTS, capId) ? MANIFESTS[capId] : null;
   if (!manifest) return resultBase({ requestId: id, capabilityId: String(capId), status: 'denied', answer: 'Capability is not available.', errorCode: 'capability_not_allowed' });
   if (request.app_id !== manifest.owner || request.locale !== 'en-ZW') {
