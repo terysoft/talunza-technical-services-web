@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { runCapability, MANIFESTS } from './capability-runner.mjs';
 import { evaluateAttention } from './attention-engine.mjs';
+import { createFakeProvider, FakeProviderError } from './fake-provider.mjs';
 
 const id = 'e6b9c8ff-2d14-4cde-8ed7-1d6710a82f44';
 const ctx = { scope: 'PUBLIC_SYNTHETIC' };
@@ -25,6 +26,31 @@ function job(overrides = {}) {
   };
 }
 
+test('sealed fake provider gives zero-cost synthetic receipt', async () => {
+  const p = createFakeProvider({ responseText: 'Mock response' });
+  const r = await p.generate({ capability_id: 'technical.intake_triage',
+    input: 'A synthetic problem description', max_output_chars: 240, tools: [] });
+  assert.equal(p.estimated_usd, 0);
+  assert.equal(r.receipt.provider, 'FAKE_NO_NETWORK');
+  assert.equal(r.receipt.billed_usd, 0);
+  assert.equal(r.receipt.usage_units.billable_tokens, 0);
+});
+test('fake provider rejects non-allowlisted tool calls', async () => {
+  await assert.rejects(createFakeProvider().generate({
+    capability_id: 'technical.intake_triage',
+    input: 'A synthetic problem description', max_output_chars: 240,
+    tools: ['payments.transfer'],
+  }), FakeProviderError);
+});
+test('fake provider rejects unsupported capability', async () => {
+  await assert.rejects(createFakeProvider().generate({
+    capability_id: 'payments.transfer',
+    input: 'A synthetic problem description', max_output_chars: 240, tools: [],
+  }), FakeProviderError);
+});
+test('fake provider rejects invalid simulation scenario', async () => {
+  await assert.rejects(Promise.resolve().then(() => createFakeProvider({ scenario: 'call-live-api' })), TypeError);
+});
 test('two distinct consumer manifests share one request-result interface', async () => {
   assert.equal(Object.keys(MANIFESTS).length, 2);
   const technical = await runCapability(request('My solar inverter is not charging'), ctx);
