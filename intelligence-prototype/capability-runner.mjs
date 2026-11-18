@@ -68,7 +68,7 @@ const SERVICE_FAMILIES = Object.freeze([
 const HAZARD = /\b(smoke|sparks?|electric shock|electrocut|fire|burning smell|exposed live|hot cable|overheat|burnt wire)\b/i;
 
 function validRequestId(value) {
-  return typeof value === 'string' && /^[a-zA-Z0-9_-]{8,80}$/.test(value);
+  return typeof value === 'string' && /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(value);
 }
 function safeReceiptId(requestId) {
   return `synthetic-${requestId}`;
@@ -167,10 +167,13 @@ function academyDraft(text) {
 export async function runCapability(request, options = {}) {
   const id = request?.request_id;
   const capId = request?.capability_id;
-  if (!validRequestId(id)) throw new TypeError('request_id must be 8-80 safe characters');
-  if (request.schema_version !== '1.0') throw new TypeError('Unsupported request schema');
+  if (!validRequestId(id)) throw new TypeError('request_id must be a UUID');
+  if (request.kind !== 'request' || request.schema_version !== '1.0') throw new TypeError('Unsupported request envelope');
   const manifest = Object.hasOwn(MANIFESTS, capId) ? MANIFESTS[capId] : null;
   if (!manifest) return resultBase({ requestId: id, capabilityId: String(capId), status: 'denied', answer: 'Capability is not available.', errorCode: 'capability_not_allowed' });
+  if (request.app_id !== manifest.owner || request.locale !== 'en-ZW') {
+    return resultBase({ requestId: id, capabilityId: capId, status: 'denied', answer: 'App or locale is not admitted for this prototype.', errorCode: 'app_locale_not_admitted' });
+  }
   if (options.scope !== manifest.requiredScope) {
     return resultBase({ requestId: id, capabilityId: capId, status: 'denied', answer: 'This preview cannot access protected data.', errorCode: 'scope_denied' });
   }
