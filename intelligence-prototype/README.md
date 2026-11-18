@@ -15,7 +15,7 @@ The reusable part is an ES module under `intelligence-prototype/`, not a Next-sp
 - `technical.intake_triage`: classifies fictional service reports, distinguishes unsafe symptoms, and emits a proposed draft action, never a diagnosis or physical repair instruction.
 - `academy.lesson_explain`: a **synthetic** measuring exercise, not a verified educator lesson or real student record, using the same schema.
 - `evaluateAttention`: pure deterministic low-stock and waiting-for-information examples; stable per-revision card ID, stale/dismiss/denied-source handling; no notifications or automated actions.
-- `FakeProvider` injection support only for isolated compatibility tests; simulated model response cannot add evidence or action grants, and has no external API calls.
+- Sealed `createFakeProvider` adapter in `fake-provider.mjs` with named deterministic scenarios (`none`, `timeout`, `unavailable`, `unknown_billing`, `budget_denied`), zero-cost synthetic receipts, no network, no caller-supplied provider function and no action grants.
 
 These are **not** two real integrated product consumers. The second consumer is only synthetic and cannot satisfy the cross-product production gate by itself.
 
@@ -23,6 +23,10 @@ These are **not** two real integrated product consumers. The second consumer is 
 
 ```bash
 node --test intelligence-prototype/intelligence.test.mjs
+# With the Kernel PR #15 schema checked out in a separate local directory:
+python3 intelligence-prototype/verify-kernel-contract.py \
+  /path/to/talunza-kernel/docs/initiatives/ai-native-intelligence/intelligence-envelope-v1.schema.json
+# Do not run npm ci from this branch until PR #3's lockfile is reconciled:
 npm ci
 npm run typecheck
 NEXT_PUBLIC_BASE_PATH=/technical npm run build
@@ -34,8 +38,9 @@ Default `NEXT_PUBLIC_BASE_PATH` is `/talunza-technical-services-web`; this previ
 
 ## Test evidence (2026-11-18)
 
-- 38 cases in `intelligence.test.mjs` (two consumer manifests, service classification, safety signal, public/synthetic scope denial, forged client fields, typed proposal-only output, provider failure, attention dedup, stale/denied/dismissed state).
-- 38/38 passed in the tool's isolated V8 JavaScript execution of the exact GitHub source after readback, using a small test/assert semantic shim. **Native `node --test` is NOT yet executed**, nor `tsc`, Next build, Android, browser, accessibility, network/hosting or penetration testing.
+- 47 cases in `intelligence.test.mjs` (two consumer manifests, service classification, safety signal, public/synthetic scope denial, forged client fields, typed proposal-only output, sealed fake adapter failure/budget/billing receipts, attention dedup, stale/denied/dismissed state).
+- 47/47 passed in isolated V8 JavaScript execution of the exact GitHub source after readback using a test/assert semantic shim. **This is NOT native `node --test`**; Node, `tsc`, Next build, Android, browser, accessibility, network/hosting and penetration tests remain unverified.
+- 17 contract fixtures were generated in the same V8 executor; 17/17 matched expected valid/invalid outcomes using a **limited JavaScript schema-subset checker**. This is NOT independent full JSON Schema conformance. The separate Python `jsonschema` Draft202012 checker has been added but NOT executed against the canonical schema in a native checkout.
 - GitHub file content was read back and matched the written content after each change; this is repository-state proof, not deployment proof.
 - No model API, OAuth, customer/learner record, prompt logging, database, token billing, scheduled notification, effect execution or production endpoint used.
 
@@ -61,3 +66,11 @@ Require full native test command, typecheck, static build, two real authorized c
 Server trusted context: actor, tenant, data class, scope, purpose, consent, route budget, allowed tools and evidence revisions. Responses stay versioned and include evidence, freshness, proposed actions and receipts. Use Kernel PR #15 to avoid copying this prototype into each application.
 
 **Do not merge or deploy based solely on this prototype.** This is intentionally the smallest working step toward a reusable, policy-controlled TALUNZA Intelligence Layer.
+
+## Follow-up: security patch and full conformance gate
+
+- Security PR #3 (security/next15-patches-20261114) proposes Next 15.5.29, React/React DOM 19.1.10, scoped PostCSS override and package-lock. This intelligence PR changes no existing app dependency, lockfile or homepage file.
+- Reconcile both drafts in a **fresh disposable local worktree** before native build QA; do not merge either to main solely for testing.
+- This assistant's isolated Node 22 container could not clone GitHub (external DNS unavailable). Therefore source verified through GitHub plus V8 execution is NOT evidence of native Node/Next build.
+- export-contract-fixtures.mjs emits 7 expected-valid and 10 expected-invalid synthetic documents. verify-kernel-contract.py runs the actual Kernel v1 JSON Schema using Python jsonschema Draft202012Validator and format checking. These developer tools have no production dependency and must be run natively before G1 conformance claims.
+- Re-run native tests and full schema check after each Kernel contract revision; do not weaken a contract to make failures disappear without review.
