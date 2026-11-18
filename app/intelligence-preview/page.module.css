@@ -1,0 +1,36 @@
+.screen{min-height:100vh;background:radial-gradient(circle at 90% 0%,#0e3451 0%,#081625 37%,#06101c 80%);color:#eef8ff;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;padding:44px 18px 70px;line-height:1.6}
+.container{max-width:860px;margin:0 auto}
+.backLink{display:inline-block;color:#98d8f4;text-decoration:none;font-size:14px;margin-bottom:34px}
+.backLink:hover{text-decoration:underline}
+.topline{color:#88d8c9;font-size:12px;letter-spacing:2px;font-weight:750;display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:#4af0b5;box-shadow:0 0 15px #4af0b5}
+.screen h1{font-size:clamp(32px,5vw,54px);line-height:1.08;letter-spacing:-.035em;margin:0;max-width:740px;font-weight:800}
+.screen h1 em{font-style:normal;color:#71f3ca}
+.intro{font-size:17px;max-width:720px;color:#c1d0dd;margin:20px 0}
+.warning{border:1px solid #8b7148;border-radius:12px;padding:14px 17px;margin:24px 0;background:#281f1e;color:#f5dfb2;font-size:14px}
+.panel{border:1px solid #26445b;border-radius:18px;padding:clamp(19px,4vw,32px);background:rgba(14,28,45,.94);margin:24px 0;box-shadow:0 14px 40px rgba(0,0,0,.12)}
+.sectionTag{font-size:11px;color:#66f5bf;font-weight:750;letter-spacing:1.7px;margin:0 0 9px}
+.panel h2{font-size:clamp(22px,3vw,29px);line-height:1.25;margin:0 0 8px;letter-spacing:-.025em}
+.hint{font-size:14px;color:#adc3d2;margin:6px 0 16px}
+.choiceGrid{display:flex;gap:8px;flex-wrap:wrap;margin:17px 0}
+.choice,.activeChoice{border:1px solid #3d5e78;background:#13293c;border-radius:10px;padding:10px 12px;cursor:pointer;font:inherit;font-size:13px;color:#dfedf9;transition:border-color .15s,background .15s}
+.choice:hover{border-color:#85dfef}
+.activeChoice{border-color:#59edc7;background:#15493f;color:#ecfff7}
+.choice:focus-visible,.activeChoice:focus-visible,.primaryButton:focus-visible,.secondaryButton:focus-visible{outline:3px solid #e8fead;outline-offset:3px}
+.sampleText{border-left:3px solid #65e5bd;padding:11px 16px;background:#0b2537;border-radius:0 8px 8px 0;color:#edfaff;margin:19px 0}
+.primaryButton{padding:13px 20px;background:#65ecc0;color:#073329;border:0;border-radius:10px;font:inherit;font-weight:800;cursor:pointer}
+.primaryButton:hover{background:#85ffd6}
+.primaryButton:disabled{opacity:.55;cursor:progress}
+.result,.attentionCard{margin-top:20px;padding:19px;border:1px solid #316f77;border-radius:12px;background:#10303d}
+.resultTop{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;color:#8fe6d0;letter-spacing:1.1px;font-size:10px;font-weight:750}
+.result p,.attentionCard p{margin:13px 0}
+.uncertainty{color:#e2d7bd;font-size:14px}
+.evidence{font-size:12px;color:#adbdc7}
+.secondaryButton{border:1px solid #83d2d6;background:transparent;color:#e5fdff;padding:10px 15px;border-radius:9px;cursor:pointer;font:inherit;font-size:13px;font-weight:650;margin-top:4px}
+.secondaryButton:hover{background:#1a4d59}
+.attentionCard{border-color:#3c6580;background:#142d45}
+.attentionCard h3{margin:10px 0;font-size:19px}
+.dismissed{color:#9bcab8;margin:16px 0}
+.footer{font-size:12px;color:#94a9b8;margin:30px 0}
+@media(prefers-reduced-motion:reduce){.choice,.activeChoice{transition:none}}
+@media(max-width:480px){.screen{padding:24px 13px 60px}.choice,.activeChoice{flex:1 1 46%;min-height:47px}.resultTop{font-size:9px}}
