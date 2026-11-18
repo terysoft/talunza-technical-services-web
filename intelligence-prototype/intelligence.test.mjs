@@ -103,9 +103,14 @@ test('client-injected fake tenant and role do not grant authority', async () => 
   const r = await runCapability({ ...request('My router is down'), input: {
     text: 'My router is down', tenant_id: 'another-tenant', role: 'owner',
   } }, ctx);
-  assert.equal(r.status, 'drafted');
-  assert.equal(r.proposed_actions[0].state, 'proposal_only');
-  assert.equal(r.evidence.some(e => e.source_ref.includes('another-tenant')), false);
+  assert.equal(r.status, 'denied');
+  assert.equal(r.error_code, 'malformed_envelope');
+  assert.equal(r.proposed_actions.length, 0);
+});
+test('forged top-level tenant authorization field rejected', async () => {
+  const r = await runCapability({ ...request('Router offline'), tenant_id: 'another-tenant' }, ctx);
+  assert.equal(r.status, 'denied');
+  assert.equal(r.error_code, 'malformed_envelope');
 });
 test('input shorter than three characters denied', async () => {
   const r = await runCapability(request('A'), ctx);
