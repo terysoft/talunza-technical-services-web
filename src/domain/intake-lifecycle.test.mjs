@@ -1,0 +1,18 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {transitionIntake} from './intake-lifecycle.mjs';
+const as=(role)=>({id:'operator-123',role});
+test('intake may request more information',()=>assert.equal(transitionIntake('NEW','NEEDS_INFO',as('INTAKE')).ok,true));
+test('reject unknown state',()=>assert.equal(transitionIntake('UNKNOWN','NEEDS_INFO',as('INTAKE')).reason,'UNKNOWN_STATE'));
+test('reject anonymous or unsupported actor',()=>assert.equal(transitionIntake('NEW','NEEDS_INFO',{}).reason,'ACTOR_REQUIRED'));
+test('forbid arbitrary state jump',()=>assert.equal(transitionIntake('NEW','QUOTED',as('PRICE_APPROVER')).reason,'TRANSITION_NOT_ALLOWED'));
+test('forbid wrong-role quote',()=>assert.equal(transitionIntake('PRICE_REVIEW','QUOTED',as('INTAKE')).reason,'ROLE_NOT_AUTHORISED'));
+test('technician review needs source evidence',()=>assert.equal(transitionIntake('READY_FOR_ASSESSMENT','TECH_REVIEW',as('TECHNICIAN')).reason,'ASSESSMENT_EVIDENCE_REQUIRED'));
+test('quote requires both approvals and site review',()=>{for(const e of [{technicalApproved:true,priceApproved:true},{technicalApproved:true,siteCostsReviewed:true}]) assert.equal(transitionIntake('PRICE_REVIEW','QUOTED',as('PRICE_APPROVER'),e).reason,'APPROVED_QUOTE_REQUIRED');});
+test('approved quote produces audit intent, not a forged database commit',()=>{const r=transitionIntake('PRICE_REVIEW','QUOTED',as('PRICE_APPROVER'),{technicalApproved:true,priceApproved:true,siteCostsReviewed:true});assert.equal(r.ok,true);assert.equal(r.requiresDurableCommit,true);assert.equal(r.auditIntent.newStatus,'QUOTED');});
+test('customer quote acceptance requires explicit reference and evidence',()=>assert.equal(transitionIntake('QUOTED','ACCEPTED',as('CUSTOMER')).reason,'CUSTOMER_ACCEPTANCE_EVIDENCE_REQUIRED'));
+test('handoff requires Works acknowledgement, not just accepting quote',()=>{assert.equal(transitionIntake('ACCEPTED','TRANSFERRED_TO_WORKS',as('HANDOFF')).reason,'WORKS_ACK_REQUIRED');const r=transitionIntake('ACCEPTED','TRANSFERRED_TO_WORKS',as('HANDOFF'),{worksReference:'works-123',handoffAcknowledged:true});assert.equal(r.ok,true);});
+test('terminal status cannot be reactivated casually',()=>assert.equal(transitionIntake('TRANSFERRED_TO_WORKS','NEW',as('INTAKE')).reason,'TRANSITION_NOT_ALLOWED'));
+test('cancellation requires reason',()=>assert.equal(transitionIntake('NEW','CANCELLED',as('INTAKE')).reason,'REASON_REQUIRED'));
+test('no-op status updates rejected',()=>assert.equal(transitionIntake('NEW','NEW',as('INTAKE')).reason,'NO_STATE_CHANGE'));
+test('system expiry requires verified trigger',()=>assert.equal(transitionIntake('QUOTED','EXPIRED',as('SYSTEM')).reason,'EXPIRY_EVIDENCE_REQUIRED'));
