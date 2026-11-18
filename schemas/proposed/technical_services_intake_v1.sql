@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS technical_services.intake_requests (
     id uuid PRIMARY KEY,
     public_ref text UNIQUE NOT NULL,
     request_type text NOT NULL CHECK (request_type IN ('solar_new','solar_existing','electrical_first_fix','product_enquiry')),
-    status text NOT NULL DEFAULT 'NEW' CHECK (status IN ('NEW','NEEDS_INFO','READY_FOR_ASSESSMENT','TECH_REVIEW','PRICE_REVIEW','QUOTED','TRANSFERRED_TO_WORKS','CANCELLED','EXPIRED')),
+    status text NOT NULL DEFAULT 'NEW' CHECK (status IN ('NEW','NEEDS_INFO','READY_FOR_ASSESSMENT','TECH_REVIEW','PRICE_REVIEW','QUOTED','ACCEPTED','TRANSFERRED_TO_WORKS','CANCELLED','DECLINED','EXPIRED')),
     locality text NOT NULL,
     customer_name_cipher bytea,
     contact_cipher bytea NOT NULL,
