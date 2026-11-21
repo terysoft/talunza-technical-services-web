@@ -2,23 +2,9 @@
 
 import { useState, type FormEvent } from 'react';
 import styles from './quote.module.css';
+import { buildIncubatorWhatsAppUrl, validateIncubatorQuote, type IncubatorQuoteDetails } from './quote';
 
-const whatsAppNumber = '263777323918';
-
-type Values = {
-  species: string;
-  capacity: string;
-  turning: string;
-  power: string;
-  backup: string;
-  controls: string;
-  customerMaterials: string;
-  location: string;
-  delivery: string;
-  notes: string;
-};
-
-function getValues(form: HTMLFormElement): Values {
+function getValues(form: HTMLFormElement): IncubatorQuoteDetails {
   const data = new FormData(form);
   const value = (key: keyof Values) => String(data.get(key) ?? '').trim();
   return {
@@ -35,42 +21,19 @@ function getValues(form: HTMLFormElement): Values {
   };
 }
 
-function makeMessage(data: Values): string {
-  const lines = [
-    'Hello TALUNZA. I would like a quotation for a made-to-order poultry egg incubator.',
-    'Egg type: ' + data.species,
-    'Target egg capacity per batch: ' + data.capacity,
-    'Egg turning: ' + data.turning,
-    'Available power: ' + data.power,
-    'Backup power: ' + data.backup,
-    'Requested controls: ' + data.controls,
-    'Materials arrangement: ' + data.customerMaterials,
-    'Location: ' + data.location,
-    'Collection/delivery: ' + data.delivery,
-  ];
-  if (data.notes) lines.push('Additional requirements: ' + data.notes);
-  lines.push('Please confirm the design, approved materials list, labour and other separately agreed costs before purchases.');
-  return lines.join('\n');
-}
-
 export default function QuoteBuilder() {
   const [error, setError] = useState('');
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const data = getValues(event.currentTarget);
-    const capacity = Number(data.capacity);
-    if (!Number.isSafeInteger(capacity) || capacity < 1 || capacity > 100000) {
-      setError('Enter the number of eggs per batch (1 to 100,000). This is a request, not a validated production capacity.');
-      return;
-    }
-    if (!data.species || !data.turning || !data.power || !data.location || !data.customerMaterials) {
-      setError('Please complete egg type, turning, power, location and material arrangement.');
+    const validationError = validateIncubatorQuote(data);
+    if (validationError) {
+      setError(validationError);
       return;
     }
     setError('');
-    const url = 'https://wa.me/' + whatsAppNumber + '?text=' + encodeURIComponent(makeMessage(data));
-    window.location.assign(url);
+    window.location.assign(buildIncubatorWhatsAppUrl(data));
   }
 
   return (
