@@ -4,7 +4,7 @@ export const dynamic = 'force-static';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = 'https://talunza.co.zw/technical';
-  const paths = ['', '/electrical', '/solar', '/connectivity', '/computers-software'];
+  const paths = ['', '/electrical', '/solar', '/connectivity', '/computers-software', '/incubators'];
   return paths.map((path, index) => ({
     url: `${base}${path}/`,
     lastModified: new Date('2026-09-11T00:00:00Z'),
