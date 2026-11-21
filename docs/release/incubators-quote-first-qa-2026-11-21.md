@@ -23,6 +23,10 @@ The public business model remains made-to-order: customer supplies approved mate
 - Security package dependencies match the root dependency entries in the copied lockfile; no dependency installation/build or advisories validation was performed here.
 - Public `/`, `/services/`, `/technical/` pages were fetchable at inspection; `/technical/incubators/`, `/technical/incubators/request/` and `/forge/` were **not verifiably published**. Inaccessibility to the checker does not establish an outage.
 
+## Dated framework security evidence (21 Nov 2026)
+
+The upstream [Next.js v15.5.29 release](https://github.com/vercel/next.js/releases/tag/v15.5.29), published **3 Nov 2026**, explicitly describes patches for response injection in certain self-hosted paths, SVG rejection bypass, and internal-header cookie exposure. The [upstream advisory GHSA-pc58-hwjq-p385](https://github.com/vercel/next.js/security/advisories/GHSA-pc58-hwjq-p385) lists 15.5.29 as the patched 15.x version. The [Oct 2026 upstream security guidance](https://nextjs.org/blog) and [React security blog](https://react.dev/blog) document earlier React Server Components fixes; this candidate pins React 19.1.10. These references support the selected update but **do not replace a full dependency audit**, which remains a release gate.
+
 ## Mandatory local / release-owner checks
 
 From an actual checkout of the integration branch, use Node >=20 and no paid CI:
