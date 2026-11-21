@@ -11,12 +11,12 @@ export const metadata: Metadata = {
     template: '%s | Talunza Technical Services',
   },
   description:
-    'Electrical fault finding, solar and solar pumps, inverter and battery systems, CCTV, Starlink, networking, computer repair, software support and practical fabrication in Chiredzi and the Lowveld.',
+    'Electrical fault finding, solar and solar pumps, inverter and battery systems, CCTV, Starlink, networking, computer repair, software support and made-to-order incubator fabrication in Chiredzi and the Lowveld.',
   keywords: [
     'Talunza Technical Services', 'technical services Chiredzi', 'electrician Chiredzi',
     'solar installation Chiredzi', 'solar pump installation Chiredzi', 'inverter repair Chiredzi',
     'CCTV installation Chiredzi', 'Starlink installation Chiredzi', 'computer repair Chiredzi',
-    'welding fabrication Chiredzi', 'Lowveld technical services Zimbabwe'
+    'welding fabrication Chiredzi', 'poultry egg incubators Zimbabwe', 'custom incubator Chiredzi', 'Lowveld technical services Zimbabwe'
   ],
   alternates: { canonical: `${siteUrl}/` },
   openGraph: {
