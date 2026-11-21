@@ -42,6 +42,32 @@ const serviceGroups = [
     ],
   },
   {
+    kicker: 'CUSTOM INCUBATORS',
+    title: 'Poultry egg incubators made to order',
+    copy: 'Custom sizes and capacities for poultry keepers. We scope the egg type, turning method, heat/humidity controls, power and safe commissioning before issuing a quotation.',
+    items: [
+      'Small and larger customer-requested capacities',
+      'Manual or automatic turning options, subject to agreed design',
+      'Mains, solar and backup power assessment',
+      'Controls, ventilation and test requirements scoped per build',
+      'Customer may buy materials from our verified list',
+      'Labour and other agreed costs quoted separately',
+    ],
+  },
+  {
+    kicker: 'INTEGRATED ENGINEERING',
+    title: 'Fabrication + electrical + intelligent monitoring',
+    copy: 'One team route for engineered metalwork, solar/electrical installation and optional sensing or alerts. Advanced automation is feasibility-scoped, not sold as a proven standard product.',
+    items: [
+      'Equipment frames, supports and weatherproof enclosures',
+      'Pump, irrigation and workshop monitoring assessments',
+      'Security towers and remote-site power feasibility',
+      'Technician-led inspection and evidence capture',
+      'Qualified electrical/structural checks where required',
+      'Human-reviewed AI assistance; no AI-only safety control',
+    ],
+  },
+  {
     kicker: 'MAKE & INSTALL',
     title: 'Talunza Forge fabrication',
     copy: 'Useful fabricated products and installation hardware built around real customer needs, not fabrication for its own sake.',
@@ -52,6 +78,7 @@ const serviceGroups = [
       'Frames, brackets, guards & enclosures',
       'Battery and inverter housings',
       'Custom small systems and installation hardware',
+      'Client-funded fabrication: materials purchased from an approved list',
     ],
   },
 ];
@@ -65,7 +92,7 @@ const serviceProcess = [
 
 const sectors = ['Homes', 'Shops & offices', 'Farms', 'Schools & churches', 'Workshops', 'Lodges & hospitality', 'Remote sites', 'Small industry'];
 const areas = ['Chiredzi', 'Triangle', 'Hippo Valley', 'Mkwasine', 'Boli', 'Chingele', 'Ngundu', 'Rutenga'];
-const equipment = ['Breakers & protection', 'Solar kits & components', 'Inverters & batteries', 'Starlink kits & accessories', 'Wi-Fi access points', 'Routers & switches', 'CCTV kits & cameras', 'Cables & installation accessories', 'Mounts & brackets', 'Phone & creator accessories'];
+const equipment = ['Breakers & protection', 'Solar kits & components', 'Inverters & batteries', 'Starlink kits & accessories', 'Wi-Fi access points', 'Routers & switches', 'CCTV kits & cameras', 'Cables & installation accessories', 'Mounts & brackets', 'Phone & creator accessories', 'Incubator components & controls (quoted)'];
 
 function wa(text: string) {
   return `${whatsappBase}?text=${encodeURIComponent(text)}`;
@@ -83,6 +110,7 @@ export default function HomePage() {
         </a>
         <nav aria-label="Primary navigation">
           <a href="#services">Services</a>
+          <a href="/technical/incubators/">Incubators</a>
           <a href="#process">How it works</a>
           <a href="#coverage">Coverage</a>
           <a href="#contact" className="navCta">Get help</a>
@@ -122,6 +150,19 @@ export default function HomePage() {
         <div className="serviceGrid">{serviceGroups.map((group) => <article className="serviceCard" key={group.title}><p className="cardKicker">{group.kicker}</p><h3>{group.title}</h3><p>{group.copy}</p><ul>{group.items.map((item) => <li key={item}>{item}</li>)}</ul><a href={wa(`Hello Talunza. I need help with ${group.title.toLowerCase()}. My location is: ____. The problem is: ____.`)}>Ask about this service →</a></article>)}</div>
       </section>
 
+      <section className="section forgeSection" aria-labelledby="incubator-offer-heading">
+        <div className="forgeGrid"><div>
+          <p className="eyebrow dark">MADE TO ORDER · POULTRY INCUBATORS</p>
+          <h2 id="incubator-offer-heading">Incubators built to your required capacity.</h2>
+          <p>We fabricate custom poultry egg incubators. Specify the egg species and quantity, turning preference, available electricity or backup, and any monitoring needs. We assess the design and provide a quotation; no unverified fixed price or hatch-rate promise.</p>
+          <p><strong>You can buy the materials.</strong> We provide an agreed list and confirm compatibility. Labour, consumables, transport and specialist installation, where applicable, are separately scoped before work starts.</p>
+          <a className="textLink" href="/technical/incubators/">View incubator options and request a quote →</a>
+        </div>
+        <div className="forgeVisual" aria-label="Custom incubator requirements">
+          <span>Egg type</span><span>Capacity</span><span>Power</span><span>Turning</span><span>Ventilation</span><span>Controls</span>
+        </div></div>
+      </section>
+
       <section className="section supplySection"><div className="supplyGrid"><div><p className="eyebrow dark">EQUIPMENT & COMPONENTS</p><h2>Supply matched to the job.</h2><p>Where practical, Talunza can source or supply compatible equipment and installation components so the customer does not have to guess what fits the system.</p><a className="textLink" href={wa('Hello Talunza. I need equipment or components. Item/system: ____. Quantity: ____. Location: ____.')}>Ask for equipment availability →</a></div><div className="chips equipmentChips">{equipment.map((x) => <span key={x}>{x}</span>)}</div></div></section>
 
       <section className="section darkSection"><div className="splitGrid"><div><p className="eyebrow">WHY TALUNZA</p><h2>We do not replace parts until we understand the fault.</h2></div><div className="principles"><article><strong>Fault-finding before guessing</strong><p>We test the system and isolate the probable cause before recommending avoidable replacement.</p></article><article><strong>Repair when repair is sensible</strong><p>We compare repair, replacement and upgrade options against reliability, safety and cost.</p></article><article><strong>Physical + digital capability</strong><p>Electrical, networking, devices, computers, software and fabrication can be combined when the problem crosses disciplines.</p></article><article><strong>Regulated work stays regulated</strong><p>Where qualifications, approvals or authority sign-off are required, work is routed only through appropriately qualified people and required human approval.</p></article></div></div></section>
@@ -132,11 +173,11 @@ export default function HomePage() {
         <div className="evidenceBox"><strong>For faster triage, send:</strong><p>Your location · what stopped working · when it started · photos/video · error lights/messages · make/model · what was already tried.</p></div>
       </section>
 
-      <section className="section forgeSection"><div className="forgeGrid"><div><p className="eyebrow dark">TALUNZA FORGE</p><h2>When the solution needs to be made, we make it.</h2><p>Forge is the fabrication and small-product manufacturing layer inside Technical Services. It supports installations, repairs and standalone products with brackets, mounts, frames, stands, enclosures, phone/creator accessories and steel furniture designed around practical use.</p><a className="textLink" href={wa('Hello Talunza. I need a fabricated item or custom steel solution. I will send the measurements/photos now.')}>Request a fabrication quote →</a></div><div className="forgeVisual" aria-label="Talunza Forge capabilities"><span>Stands</span><span>Mounts</span><span>Furniture</span><span>Frames</span><span>Enclosures</span><span>Custom supports</span></div></div></section>
+      <section className="section forgeSection"><div className="forgeGrid"><div><p className="eyebrow dark">TALUNZA FORGE</p><h2>When the solution needs to be made, we make it.</h2><p>Forge is the fabrication and small-product manufacturing layer inside Technical Services. It supports custom egg incubators, welding, installations, repairs, frames, stands, enclosures and steel furniture. For made-to-order jobs, the client can purchase materials from a confirmed list while Talunza quotes labour and agreed other charges.</p><a className="textLink" href={wa('Hello Talunza. I need a fabricated item or custom steel solution. I will send the measurements/photos now.')}>Request a fabrication quote →</a></div><div className="forgeVisual" aria-label="Talunza Forge capabilities"><span>Stands</span><span>Mounts</span><span>Furniture</span><span>Frames</span><span>Enclosures</span><span>Custom supports</span><span>Incubators</span></div></div></section>
 
       <section id="coverage" className="section coverageSection"><div className="sectionHead"><p className="eyebrow dark">WHO & WHERE WE SERVE</p><h2>Chiredzi first. Lowveld practical.</h2><p>Workshop and field support is scheduled according to location, travel, required equipment and technician availability.</p></div><div className="coverageGrid"><div><h3>Customer environments</h3><div className="chips">{sectors.map((x) => <span key={x}>{x}</span>)}</div></div><div><h3>Core service area</h3><div className="chips">{areas.map((x) => <span key={x}>{x}</span>)}</div></div></div></section>
 
-      <section className="section faqSection"><div className="sectionHead narrow"><p className="eyebrow dark">QUICK ANSWERS</p><h2>Before you book a call-out.</h2></div><div className="faqList"><details><summary>Do you charge for fault finding?</summary><p>Yes, where diagnosis requires a site visit, disassembly, testing or substantial troubleshooting. The scope is explained before work proceeds.</p></details><details><summary>Can I send photos or video before you come?</summary><p>Yes. WhatsApp evidence often helps us identify tools, likely parts and whether a site visit is the correct next step.</p></details><details><summary>Do you supply equipment and parts?</summary><p>Where practical, we can quote suitable parts or equipment. For customer-supplied items, compatibility is checked before installation where possible.</p></details><details><summary>Do you work outside Chiredzi?</summary><p>Yes, selected Lowveld and remote jobs can be scheduled. Travel and logistics are confirmed before dispatch.</p></details><details><summary>Do you handle computer repair and software too?</summary><p>Yes. Computer diagnostics, recovery, upgrades and software/business-system support remain permanent parts of Talunza Technical Services.</p></details></div></section>
+      <section className="section faqSection"><div className="sectionHead narrow"><p className="eyebrow dark">QUICK ANSWERS</p><h2>Before you book a call-out.</h2></div><div className="faqList"><details><summary>Do you charge for fault finding?</summary><p>Yes, where diagnosis requires a site visit, disassembly, testing or substantial troubleshooting. The scope is explained before work proceeds.</p></details><details><summary>Can I send photos or video before you come?</summary><p>Yes. WhatsApp evidence often helps us identify tools, likely parts and whether a site visit is the correct next step.</p></details><details><summary>Can I buy the materials and pay you for fabrication labour?</summary><p>Yes. We can prepare an agreed materials list for custom fabrication or an incubator. Confirm specifications with us before buying. Labour, consumables and other agreed charges are set out in a quotation; any unsafe or incompatible materials must be replaced before work proceeds.</p></details><details><summary>Do you build different sizes of poultry incubators?</summary><p>Yes, custom capacity is assessed and priced per design. Tell us your egg type, target capacity, power supply and whether you prefer manual or automatic turning. We confirm specifications and safety tests before quoting.</p></details><details><summary>Do you supply equipment and parts?</summary><p>Where practical, we can quote suitable parts or equipment. For customer-supplied items, compatibility is checked before installation where possible.</p></details><details><summary>Do you work outside Chiredzi?</summary><p>Yes, selected Lowveld and remote jobs can be scheduled. Travel and logistics are confirmed before dispatch.</p></details><details><summary>Do you handle computer repair and software too?</summary><p>Yes. Computer diagnostics, recovery, upgrades and software/business-system support remain permanent parts of Talunza Technical Services.</p></details></div></section>
 
       <section className="section supplySection"><div className="supplyGrid"><div><p className="eyebrow dark">RIGHT TALUNZA ROUTE</p><h2>Technical job, media job or software job?</h2><p>This page owns physical technical execution: electrical, solar, connectivity, computers, electronics and fabrication. For filming, adverts, AI-assisted media or practical creator training, use Talunza Media. For broader software and business systems, return to the main Talunza site.</p><div className="actions"><a className="primary" href="https://talunza.co.zw/media/">Talunza Media</a><a className="secondary" href="https://talunza.co.zw/">Talunza software & systems</a></div></div><div className="evidenceBox"><strong>Evidence-led handover</strong><p>For suitable jobs we preserve the useful facts: fault symptoms, measurements, parts or configuration changed, test result and handover notes. That makes repeat service easier without pretending every job needs heavy paperwork.</p></div></div></section>
 
