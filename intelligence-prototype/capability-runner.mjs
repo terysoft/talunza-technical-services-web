@@ -1,4 +1,5 @@
 import { createFakeProvider } from './fake-provider.mjs';
+import { classifyPublicIntake } from './public-intake-classifier.mjs';
 
 /**
  * TALUNZA capability prototype v0 — no keys, network, database or side effects.
@@ -27,47 +28,6 @@ export const MANIFESTS = Object.freeze({
     fallback: 'RULES',
   }),
 });
-
-const SERVICE_FAMILIES = Object.freeze([
-  {
-    id: 'solar',
-    label: 'Solar, inverter and battery support',
-    pattern: /\b(inverter|solar|battery|pv|charge|charger|panel|mppt)\b/i,
-    question: 'What are the equipment make, exact model and any displayed fault code?',
-  },
-  {
-    id: 'electrical',
-    label: 'Electrical installation and fault finding',
-    pattern: /\b(socket|circuit|tripping|breaker|wiring|rccb|rcd|electricity|electrical|power cut)\b/i,
-    question: 'Which area or appliance is affected, and what did you observe?',
-  },
-  {
-    id: 'connectivity',
-    label: 'Starlink, Wi-Fi and networking',
-    pattern: /\b(starlink|wifi|wi-fi|router|network|internet|signal|access point)\b/i,
-    question: 'What is the router or equipment model, and which devices are affected?',
-  },
-  {
-    id: 'security',
-    label: 'CCTV and security systems',
-    pattern: /\b(cctv|camera|nvr|dvr|alarm)\b/i,
-    question: 'Which cameras or alarm devices are affected, and what is visible on the recorder?',
-  },
-  {
-    id: 'refrigeration',
-    label: 'Fridge, freezer and appliance support',
-    pattern: /\b(fridge|freezer|cooling|refrigerator|compressor)\b/i,
-    question: 'What is the equipment make and model, and when did the cooling problem begin?',
-  },
-  {
-    id: 'fabrication',
-    label: 'Welding, fabrication and equipment repairs',
-    pattern: /\b(welding|welder|steel|gate|bracket|fabrication|metal)\b/i,
-    question: 'Can you describe the material, approximate dimensions and required result?',
-  },
-]);
-
-const HAZARD = /\b(smoke|sparks?|electric shock|electrocut|fire|burning smell|exposed live|hot cable|overheat|burnt wire)\b/i;
 
 function validRequestId(value) {
   return typeof value === 'string' && /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(value);
@@ -107,10 +67,7 @@ function resultBase({ requestId, capabilityId, status = 'drafted', answer, uncer
 }
 
 function technicalDraft(text) {
-  const hazard = HAZARD.test(text);
-  const family = SERVICE_FAMILIES.find((service) => service.pattern.test(text));
-  const label = family?.label ?? 'General technical assessment';
-  const question = family?.question ?? 'Which equipment is affected, and what symptoms have you observed?';
+  const { hazard, label, question, category } = classifyPublicIntake(text);
   const answer = hazard
     ? `Potential hazard mentioned. Do not open or touch suspected live or damaged equipment. Keep people clear and obtain qualified on-site assistance. Preliminary service category: ${label}.`
     : `Suggested service category: ${label}. This is an intake classification, not a confirmed diagnosis. ${question}`;
@@ -131,7 +88,7 @@ function technicalDraft(text) {
       as_of: '2026-11-18T00:00:00+02:00',
       authority: 'reference',
     }],
-    category: family?.id ?? 'other',
+    category,
     needsUrgentReview: hazard,
   };
 }
