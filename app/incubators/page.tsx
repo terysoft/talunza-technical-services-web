@@ -13,20 +13,8 @@ export const metadata: Metadata = {
 
 const assetBase = process.env.NEXT_PUBLIC_BASE_PATH ?? '/talunza-technical-services-web';
 
-const quoteMessage = [
-  'Hello TALUNZA. Please quote a custom poultry egg incubator.',
-  'My location: ____.',
-  'Egg species/type: ____.',
-  'Target number of eggs per batch: ____.',
-  'Egg turning: manual / automatic / please advise.',
-  'Power available: mains / solar / backup / please advise.',
-  'Required controls or monitoring: ____.',
-  'I can buy materials from an agreed list: yes / need guidance.',
-  'Collection/delivery preference: ____.',
-  'Please provide a material specification, labour quote and separately agreed costs.',
-].join('\n');
-
-const quoteUrl = 'https://wa.me/263777323918?text=' + encodeURIComponent(quoteMessage);
+// A structured request builds the WhatsApp message after deliberate customer submission.
+const quoteUrl = '/technical/incubators/request/';
 
 const questions = [
   ['01', 'Egg type and capacity', 'Chicken, duck, quail or other eggs; tell us your target number of eggs per batch rather than selecting an arbitrary fixed size.'],

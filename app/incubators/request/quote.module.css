@@ -1,0 +1,21 @@
+.page{max-width:1100px;margin:0 auto;padding:0 20px 64px;color:#13223a;font-family:inherit}
+.top{display:flex;gap:20px;align-items:center;justify-content:space-between;padding:24px 0;border-bottom:1px solid #d6e2ef}
+.back,.brand{color:#0752a8;text-decoration:none;font-weight:700}.brand{text-align:right}
+.intro{padding:48px 0 30px;max-width:780px}.eyebrow{font-size:.75rem;font-weight:800;letter-spacing:.12em;color:#1769c1}
+.intro h1{font-size:clamp(2rem,4vw,3.25rem);line-height:1.1;margin:12px 0}
+.intro p{font-size:1.05rem;line-height:1.65}
+.layout{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(260px,1fr);gap:30px;align-items:start}
+.form,.aside{border:1px solid #d5e0eb;border-radius:18px;padding:28px;background:#fff;box-shadow:0 10px 35px #0821400a}
+.form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.field{display:flex;flex-direction:column;gap:8px;min-width:0}
+.field:has(textarea),.privacy,.error,.submit,.fallback{grid-column:1/-1}
+.field label{font-weight:700;font-size:.93rem}.field label span{color:#c32929}
+.field input,.field select,.field textarea{font:inherit;padding:12px 13px;border:1px solid #a3b9ce;border-radius:9px;width:100%;background:#fff;color:#16273b}
+.field input:focus-visible,.field select:focus-visible,.field textarea:focus-visible,.submit:focus-visible,a:focus-visible{outline:3px solid #50a9ef;outline-offset:2px}
+.privacy,.fallback{font-size:.85rem;line-height:1.6;color:#485b6e;margin:0}
+.error{color:#9e1b1b;font-weight:700;margin:0}
+.submit{background:#0666bf;color:#fff;padding:16px;border:0;border-radius:10px;font-size:1rem;font-weight:800;cursor:pointer}
+.submit:hover{background:#004b94}
+.aside{background:#ecf5ff}.aside h2{margin:0 0 16px;font-size:1.3rem}.aside ol{padding-left:24px;line-height:1.65}.aside li{margin:0 0 13px}.aside p{font-size:.9rem;line-height:1.65}
+.fallback a{color:#0752a8}
+@media(max-width:740px){.layout{grid-template-columns:1fr}.form{grid-template-columns:1fr;padding:18px}.field{grid-column:1/-1}.intro{padding-top:28px}.top{align-items:flex-start}.brand{font-size:.85rem}}
