@@ -19,3 +19,8 @@
 .aside{background:#ecf5ff}.aside h2{margin:0 0 16px;font-size:1.3rem}.aside ol{padding-left:24px;line-height:1.65}.aside li{margin:0 0 13px}.aside p{font-size:.9rem;line-height:1.65}
 .fallback a{color:#0752a8}
 @media(max-width:740px){.layout{grid-template-columns:1fr}.form{grid-template-columns:1fr;padding:18px}.field{grid-column:1/-1}.intro{padding-top:28px}.top{align-items:flex-start}.brand{font-size:.85rem}}
+
+/* Rendered without a form until the client submit handler is ready. */
+.noScriptPanel{border:1px solid #b9d4ed;background:#eef6ff;border-radius:18px;padding:28px;line-height:1.65}
+.noScriptPanel h2{font-size:1.35rem;margin:0 0 10px}
+.noScriptPanel a{color:#0752a8;font-weight:700}

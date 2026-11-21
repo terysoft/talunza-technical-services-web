@@ -1,12 +1,12 @@
 'use client';
 
-import { useState, type FormEvent } from 'react';
+import { useEffect, useState, type FormEvent } from 'react';
 import styles from './quote.module.css';
 import { buildIncubatorWhatsAppUrl, validateIncubatorQuote, type IncubatorQuoteDetails } from './quote';
 
 function getValues(form: HTMLFormElement): IncubatorQuoteDetails {
   const data = new FormData(form);
-  const value = (key: keyof Values) => String(data.get(key) ?? '').trim();
+  const value = (key: keyof IncubatorQuoteDetails) => String(data.get(key) ?? '').trim();
   return {
     species: value('species'),
     capacity: value('capacity'),
@@ -23,6 +23,10 @@ function getValues(form: HTMLFormElement): IncubatorQuoteDetails {
 
 export default function QuoteBuilder() {
   const [error, setError] = useState('');
+  const [interactive, setInteractive] = useState(false);
+  // The customer form must not be rendered without the submit handler: an unhydrated
+  // HTML form would otherwise fall back to GET and expose customer answers in URLs.
+  useEffect(() => setInteractive(true), []);
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -48,6 +52,7 @@ export default function QuoteBuilder() {
         <p>Tell us what you need. We review your requirements, propose suitable materials and quote labour separately. No fixed price or promised hatch percentage is implied.</p>
       </section>
       <div className={styles.layout}>
+        {interactive ? (
         <form className={styles.form} onSubmit={handleSubmit}>
           <div className={styles.field}>
             <label htmlFor="species">Egg type <span>*</span></label>
@@ -116,6 +121,14 @@ export default function QuoteBuilder() {
           <button className={styles.submit} type="submit">Continue to WhatsApp quotation</button>
           <p className={styles.fallback}>Prefer a simple message? <a href="https://wa.me/263777323918">Open WhatsApp directly</a> or call <a href="tel:+263777323918">0777 323 918</a>.</p>
         </form>
+        ) : (
+          <div className={styles.noScriptPanel}>
+            <h2>Request a quotation through WhatsApp</h2>
+            <p>While the interactive form is unavailable, you can send your egg type, quantity and location directly through WhatsApp. Agree the materials and labour quotation before purchasing components.</p>
+            <a href="https://wa.me/263777323918">Open WhatsApp to request your quote</a>
+            <p>Or call <a href="tel:+263777323918">0777 323 918</a>.</p>
+          </div>
+        )}
         <aside className={styles.aside}>
           <h2>How a quote works</h2>
           <ol>
