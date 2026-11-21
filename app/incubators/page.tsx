@@ -11,6 +11,8 @@ export const metadata: Metadata = {
   },
 };
 
+const assetBase = process.env.NEXT_PUBLIC_BASE_PATH ?? '/talunza-technical-services-web';
+
 const quoteMessage = [
   'Hello TALUNZA. Please quote a custom poultry egg incubator.',
   'My location: ____.',
@@ -38,7 +40,7 @@ export default function IncubatorsPage() {
     <main>
       <header className="siteHeader">
         <a className="brand" href="/technical/" aria-label="Back to TALUNZA Technical Services">
-          <span>TALUNZA</span><span>Forge · Incubators</span>
+          <img src={`${assetBase}/talunza-logo.svg`} alt="Talunza" /><span>Forge · Incubators</span>
         </a>
         <nav aria-label="Page navigation">
           <a href="/technical/">All technical services</a>
