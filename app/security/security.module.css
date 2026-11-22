@@ -103,3 +103,12 @@
 
 /* Prevent the security brand and enquiry CTA colliding on 320px-wide phones. */
 @media(max-width:690px){.header{gap:.5rem;padding-left:1rem;padding-right:1rem}.brand{gap:.5rem}.brand img{width:82px;max-width:26vw}.brand span{font-size:.62rem;letter-spacing:.06em;padding-left:.5rem}.nav .navAction{font-size:.75rem;white-space:nowrap;padding:.65rem .7rem}}
+
+
+/* Native FAQ details keep guidance readable and search-accessible without JS. */
+.faqList{display:grid;gap:.75rem;max-width:940px}
+.faqList details{background:#fff;border:1px solid #d5e3e7;border-radius:1rem;padding:.35rem 1.1rem}
+.faqList summary{cursor:pointer;padding:.85rem .15rem;font-weight:800;color:#143c4c;line-height:1.5}
+.faqList details[open]{border-color:#9bcbd0;background:#f8fdfd}
+.faqList p{margin:.1rem 0 1.1rem;padding:0 .15rem;font-size:.89rem;color:#4b6673;line-height:1.72}
+.faqList summary:focus-visible{outline:3px solid #12a99b;outline-offset:4px;border-radius:.35rem}
