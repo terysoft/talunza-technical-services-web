@@ -76,7 +76,7 @@ export default function SecurityBlueprintBuilder() {
             <legend className={styles.fieldLabel}>Which needs matter to you?</legend>
             <div className={styles.goalGrid}>
               {goals.map((goal) => (
-                <label key={goal} className={styles.goalOption}>
+                <label key={goal} className={`${styles.goalOption} ${chosen.includes(goal) ? styles.goalSelected : ""}`}>
                   <input type="checkbox" checked={chosen.includes(goal)} onChange={() => toggle(goal)} />
                   <span>{goal}</span>
                 </label>
