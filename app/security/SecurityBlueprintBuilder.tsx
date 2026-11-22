@@ -43,7 +43,11 @@ export default function SecurityBlueprintBuilder() {
     'Hello TALUNZA Security. I used the Security Blueprint Builder.',
     'Property type: ' + site,
     'Priorities: ' + (chosen.length ? chosen.join('; ') : 'Please help me assess my needs'),
-    'Please advise on a site assessment and suitable options. I will share my general area next.',
+    'Preliminary considerations:',
+    siteExtras[site],
+    ...(summary.length ? summary.map((item, index) => (index + 1) + '. ' + item) : ['Begin with a security site assessment.']),
+    'This is an unverified concept, not a quotation or a confirmed installation.',
+    'Please advise on a site assessment. I can share my general area next.',
   ].join('\n');
   const whatsappUrl = 'https://wa.me/263777323918?text=' + encodeURIComponent(message);
 
@@ -53,11 +57,11 @@ export default function SecurityBlueprintBuilder() {
   }
 
   return (
-    <div className={styles.builder}>
+    <div className={styles.builder} aria-labelledby="security-builder-title">
       <div className={styles.builderHeading}>
         <div>
           <p className={styles.kicker}>FREE INTERACTIVE PLANNING TOOL</p>
-          <h3>Build your security concept.</h3>
+          <h3 id="security-builder-title">Build your security concept.</h3>
           <p>Choose the property and what matters most. Get a starting blueprint without entering an exact address, alarm codes or camera passwords.</p>
         </div>
         <span className={styles.builderStamp}>Local to this page · No account needed</span>
@@ -79,22 +83,22 @@ export default function SecurityBlueprintBuilder() {
               ))}
             </div>
           </fieldset>
-          <button type="button" className={styles.generate} onClick={() => setShowPlan(true)}>Generate my concept →</button>
+          <button type="button" className={styles.generate} onClick={() => setShowPlan(true)} aria-controls="security-blueprint-output">Generate my concept →</button>
         </div>
-        <div className={styles.builderOutput} aria-live="polite" aria-atomic="false">
-          <p className={styles.previewLabel}>{showPlan ? 'YOUR PRELIMINARY SECURITY CONCEPT' : 'CONCEPT PREVIEW'}</p>
+        <div className={styles.builderOutput} id="security-blueprint-output">
+          <p className={styles.previewLabel} role="status" aria-live="polite">{showPlan ? 'YOUR PRELIMINARY SECURITY CONCEPT IS READY' : 'CONCEPT PREVIEW'}</p>
           <h4>{site}</h4>
           {showPlan ? (
             <>
               <p>{siteExtras[site]}</p>
               <ul>{(summary.length ? summary : ['Start with a site security assessment and identify essential protection needs.']).map((item) => <li key={item}>{item}</li>)}</ul>
               <p className={styles.disclaimer}>This is a rule-based planning aid, not an AI diagnosis, engineering design, protection guarantee or confirmed availability. TALUNZA checks equipment, law, privacy, staffing and the site before any quotation or work.</p>
-              <a href={whatsappUrl} className={styles.resultLink} target="_blank" rel="noopener noreferrer">Send concept to TALUNZA on WhatsApp →</a>
+              <a href={whatsappUrl} className={styles.resultLink} target="_blank" rel="noopener noreferrer">Share this preliminary concept with TALUNZA →</a>
             </>
           ) : (
             <>
               <p>We will combine your selections into an initial security scope, including local power and connectivity where relevant.</p>
-              <p className={styles.disclaimer}>Your choices stay in this page until you deliberately share them through WhatsApp.</p>
+              <p className={styles.disclaimer}>Your choices stay in this page until you deliberately open WhatsApp. Sending the prepared message happens only after you confirm it inside WhatsApp.</p>
             </>
           )}
         </div>
