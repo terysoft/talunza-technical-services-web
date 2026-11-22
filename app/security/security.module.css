@@ -100,3 +100,6 @@
 .quickNav a:hover{background:#d9f4eb;border-color:#8cbdbe}
 .page section[id]{scroll-margin-top:95px}
 @media(max-width:690px){.quickNav{padding:.7rem 1rem}.quickNav a{font-size:.77rem;padding:.5rem .75rem}.page section[id]{scroll-margin-top:85px}}
+
+/* Prevent the security brand and enquiry CTA colliding on 320px-wide phones. */
+@media(max-width:690px){.header{gap:.5rem;padding-left:1rem;padding-right:1rem}.brand{gap:.5rem}.brand img{width:82px;max-width:26vw}.brand span{font-size:.62rem;letter-spacing:.06em;padding-left:.5rem}.nav .navAction{font-size:.75rem;white-space:nowrap;padding:.65rem .7rem}}
