@@ -35,7 +35,7 @@ const innovations = dataArray('innovations', 'environments');
 const environments = dataArray('environments', 'layerSteps');
 
 assert(offerings.length === 12, 'Security must show all 12 service families');
-assert(innovations.length === 16, 'Security must show all 16 future intelligent features');
+assert(innovations.length === 20, 'Security must show all 20 future intelligent features');
 assert(environments.length === 6, 'Security should show six customer contexts');
 assert(new Set(offerings.map((x) => x.label)).size === 12, 'Service family labels must be unique');
 assert(new Set(innovations.map((x) => x[0])).size === 16, 'Roadmap capability labels must be unique');
@@ -99,5 +99,5 @@ if (problems.length) {
   process.exitCode = 1;
 } else {
   console.log('TALUNZA SECURITY SOURCE CONTRACT: PASS (source-level only)');
-  console.log('12 families; 16 roadmap capabilities; 6 environments; CSS, anchors, CTA and status checks passed.');
+  console.log('12 families; 20 roadmap capabilities; 6 environments; CSS, anchors, CTA and status checks passed.');
 }
