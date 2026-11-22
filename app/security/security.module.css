@@ -35,3 +35,58 @@
 @media(max-width:1050px){.hero{grid-template-columns:1fr}.heroPanel{max-width:640px}.intelligenceGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:690px){.header{min-height:72px;align-items:center}.brand img{width:96px}.brand span{font-size:.7rem;padding-left:.65rem}.nav{gap:.5rem}.nav>a:not(.navAction){display:none}.nav .navAction{font-size:.72rem;padding:.65rem .75rem}.hero{padding-top:3.5rem;padding-bottom:3.5rem}.hero h1{font-size:clamp(2.35rem,10.5vw,4rem)}.grid,.intelligenceGrid,.steps{grid-template-columns:1fr}.footerCta{flex-direction:column;align-items:stretch}.finalActions{min-width:0}.section{padding-top:3.4rem;padding-bottom:3.4rem}.trust span{font-size:.7rem}}
 @media(prefers-reduced-motion:reduce){.primary,.ghost{transition:none}.primary:hover,.ghost:hover{transform:none}}
+
+
+/* TALUNZA Security end-state: interactive no-backend blueprint and cross-sector capabilities */
+.builder{border:1px solid #c7dce2;border-radius:1.5rem;overflow:hidden;box-shadow:0 18px 50px rgba(6,41,56,.075);background:#fff}
+.builderHeading{padding:clamp(1.4rem,3vw,2.2rem);display:flex;align-items:start;justify-content:space-between;gap:1rem;background:#eaf3f5}
+.builderHeading h3{font-size:clamp(1.75rem,3.4vw,2.5rem);line-height:1.17;letter-spacing:-.03em;margin:.4rem 0 .55rem}
+.builderHeading p:last-child{line-height:1.65;color:#4f6774;margin:0;max-width:650px;font-size:.92rem}
+.builderStamp{flex:none;border-radius:999px;background:#d5e9e9;color:#175a62;font-size:.71rem;font-weight:800;padding:.55rem .8rem}
+.builderMain{display:grid;grid-template-columns:1.15fr 1fr;gap:0;min-width:0}
+.builderInputs{padding:clamp(1.2rem,3vw,2rem);border-right:1px solid #dce7eb;min-width:0}
+.fieldLabel{display:block;color:#214b58;font-weight:850;margin:0 0 .75rem;font-size:.92rem}
+.siteSelect{width:100%;min-height:47px;border:1px solid #b6ccd4;border-radius:.75rem;padding:.65rem .75rem;color:#102f3e;background:#fff;font:inherit;max-width:100%}
+.goalFieldset{border:0;margin:1.5rem 0 1rem;padding:0;min-width:0}
+.goalGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem}
+.goalOption{border:1px solid #dae6ea;border-radius:.7rem;padding:.65rem .75rem;display:flex;align-items:start;gap:.55rem;background:#f8fbfc;cursor:pointer;font-size:.81rem;font-weight:700;color:#244859;line-height:1.4}
+.goalOption:has(input:checked){background:#dff4ed;border-color:#76bea8}
+.goalOption input{margin:.15rem 0 0;accent-color:#127f73;flex:none;width:16px;height:16px}
+.generate{border:0;background:#0c5861;color:#fff;border-radius:999px;padding:.9rem 1.4rem;font:inherit;font-weight:850;cursor:pointer;min-height:48px;margin:.3rem 0}
+.generate:hover{background:#0b3f48}
+.builderOutput{background:linear-gradient(145deg,#0e3b4e,#092e41);color:#f2f9fb;padding:clamp(1.25rem,3vw,2.2rem);min-width:0}
+.previewLabel{font-size:.73rem;letter-spacing:.1em;color:#a5e9df;font-weight:900;margin:0 0 .9rem}
+.builderOutput h4{font-size:1.55rem;letter-spacing:-.02em;margin:0 0 .8rem;color:#fff}
+.builderOutput p{line-height:1.65;color:#d1e4e9;font-size:.89rem}
+.builderOutput ul{margin:1.1rem 0;padding-left:1.25rem;display:grid;gap:.7rem;font-size:.86rem;line-height:1.55;color:#f2f8fa}
+.builderOutput li::marker{color:#8ee8cf}
+.builderOutput .disclaimer{font-size:.74rem;line-height:1.55;color:#b7d7dd;margin:1.2rem 0}
+.resultLink{display:inline-block;background:#8de2cb;border-radius:999px;padding:.9rem 1.05rem;text-decoration:none;font-weight:850;color:#07383c;font-size:.85rem;line-height:1.4}
+.resultLink:hover{background:#b1f1dc}
+.environmentGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.environmentCard{background:#fff;border:1px solid #dce6e9;border-radius:1rem;padding:1.45rem;min-width:0}
+.environmentCard h3{font-size:1.14rem;margin:.35rem 0 .7rem;line-height:1.3}
+.environmentCard>p:last-child{margin:0;font-size:.87rem;line-height:1.65;color:#4a6473}
+.flowBand{background:#0c3444;color:#fff;padding:clamp(3rem,6vw,5rem) max(1.25rem,calc((100vw - 1180px)/2))}
+.flowBand h2{font-size:clamp(1.9rem,4vw,3rem);margin:.5rem 0 2rem;line-height:1.14;letter-spacing:-.04em}
+.flowBand>p:last-child{font-size:.91rem;line-height:1.6;color:#bfd9dc;max-width:820px;margin:1.4rem 0 0}
+.layerFlow{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:.75rem}
+.layerFlow li{border-top:2px solid #83dfcc;padding:1rem .4rem .6rem 0;min-width:0}
+.layerFlow li span{font-size:.72rem;color:#92dece;display:block;font-weight:900;margin-bottom:.5rem}
+.layerFlow strong{display:block;font-size:1rem;margin-bottom:.35rem}
+.layerFlow small{color:#b4d0d8;font-size:.78rem;line-height:1.4;display:block}
+.ecosystemGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.ecosystemGrid article{padding:1.25rem;border-radius:1rem;background:#e7f2f3;border:1px solid #cee1e4}
+.ecosystemGrid strong{display:block;font-size:.95rem;color:#113e50;margin:0 0 .55rem}
+.ecosystemGrid span{display:block;color:#43636e;font-size:.84rem;line-height:1.57}
+.statusBand{background:#e3f0ee;border-top:1px solid #cfe2de;border-bottom:1px solid #cfe2de;padding:clamp(3rem,5vw,5rem) max(1.25rem,calc((100vw - 1180px)/2))}
+.statusBand .kickerLight{color:#167d79}
+.statusBand h2{color:#102c3d;max-width:780px;font-size:clamp(1.85rem,3.5vw,2.8rem);line-height:1.16;letter-spacing:-.035em;margin:.6rem 0 1.8rem}
+.statusGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.statusGrid article{background:#fff;padding:1.25rem;border-radius:1rem;border:1px solid #cedfdc}
+.statusGrid strong{display:block;color:#0c5b5c;margin-bottom:.6rem}
+.statusGrid p{font-size:.85rem;line-height:1.62;color:#47646d;margin:0}
+.page :is(a,button,select,input):focus-visible{outline:3px solid #12a99b;outline-offset:3px}
+@media(max-width:1050px){.environmentGrid,.ecosystemGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.layerFlow{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:750px){.builderMain{grid-template-columns:1fr}.builderInputs{border-right:0;border-bottom:1px solid #dce7eb}.builderHeading{display:block}.builderStamp{display:inline-block;margin-top:1rem}.statusGrid{grid-template-columns:1fr}}
+@media(max-width:690px){.environmentGrid,.ecosystemGrid{grid-template-columns:1fr}.layerFlow{grid-template-columns:repeat(2,minmax(0,1fr))}.goalGrid{grid-template-columns:1fr}.resultLink{width:100%;text-align:center}.builderOutput{min-height:200px}.page .header{z-index:40}}
