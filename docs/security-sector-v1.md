@@ -53,3 +53,14 @@ Founder directive: TALUNZA is the sole customer-facing security sector brand. An
 - LoRaWAN sensor network design reference: https://lora-alliance.org/lorawan-for-developers/
 - Zimbabwe's SI 155/2024 on data controller licensing: https://zimlii.org/akn/zw/act/si/2024/155/eng%402024-09-13
 - Zimbabwe Home Affairs security guard/private investigator licensing listings: https://www.moha.gov.zw/en/services
+
+
+## Founder end-state publishing lock — 2026-11-22
+- The entire intended TALUNZA Security catalogue is **visible** on the landing page: 12 integrated service families (physical fencing/barriers, CCTV/video, alarms/panic, access control, solar/energy, connectivity, rural/farm, industry, hazard/safety, cybersecurity, mobile assets and recurring service).
+- The advanced roadmap shows 16 targeted intelligence concepts: Guardian Correlation, AI Incident Brief, Offline Guardian, Site Pulse, Farm Guardian, Evidence Vault, Multi-Site Command, Security Digital Twin, Predictive Maintenance, Smart Verification, Privacy-Safe Review, Adaptive Communications, Safe Deterrence, Guardian Timeline, Technician Copilot and Incident Drill Simulator. **None are claimed to be deployed.**
+- The homepage route is linked to `/security/` from Technical Services, retaining `/technical/security/` as canonical production intent.
+- A new `SecurityBlueprintBuilder.tsx` provides a real client-side, non-AI rule-based preliminary concept tool by property and priorities; choices remain local to the browser until the user deliberately opens WhatsApp with the selected concerns. It never requests address, passwords or private security diagrams; it does not save a quote or produce a certified engineering plan.
+- Six customer contexts: home, shop/office, farm/remote, school/institution, industrial/warehouse, hospitality; cross-links explain Energy, Connect, Forge, Works, Capture and Track/FarmOps authority, not duplicated backend workflows.
+- Public page distinguishes enquiry now, specialist/site-specific work and future roadmap. Its complete vision is separate from implementation/field evidence, not an assertion that all products are operational.
+- **LOCKED company-wide doctrine:** `terysoft/talunza-kernel/docs/governance/public-end-state-presentation-standard-v1.md` (in companion Kernel PR #33).
+- This is a SOURCE-IMPLEMENTED candidate. Required checks: `npm ci`, `npm run typecheck`, `NEXT_PUBLIC_BASE_PATH=/technical npm run build`, mobile and route smoke, main-vs-PR rebase, approved deployment and live external verification.
