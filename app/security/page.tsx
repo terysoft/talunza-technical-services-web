@@ -167,7 +167,7 @@ const innovations = [
   ],
   [
     "Site Pulse",
-    "Identify camera outages, recorder/storage failures, damaged links, tampering and power-health warnings."
+    "Watch supported camera, recorder, disk, battery, gateway and network heartbeats. A missing heartbeat can itself mean a device needs inspection."
   ],
   [
     "Farm Guardian",
@@ -191,7 +191,7 @@ const innovations = [
   ],
   [
     "Smart Verification",
-    "Use compatible local object detection and camera context to prioritise events for human review and reduce nuisance alerts."
+    "Corroborate independent camera and sensor signals when compatible, and prioritise uncertain incidents for human review rather than relying on a single trigger."
   ],
   [
     "Privacy-Safe Review",
@@ -216,6 +216,22 @@ const innovations = [
   [
     "Incident Drill Simulator",
     "Test disconnections and alarm/event workflows safely in simulation before relying on a live installation."
+  ],
+  [
+    "Human Escalation & Acknowledgement",
+    "Route verified incidents to agreed authorised contacts or properly licensed response providers; record acknowledgment, action and close-out without promising instant dispatch."
+  ],
+  [
+    "Authorised Sale-to-Camera Bookmark",
+    "Link a permitted Business transaction timestamp to the corresponding camera interval for later investigation, without copying cash records or videos between systems."
+  ],
+  [
+    "False-Alarm Learning",
+    "Record reviewed reasons such as animal, weather, worker, test or device fault to improve deterministic settings and reduce costly unnecessary call-outs."
+  ],
+  [
+    "Regulated Aerial Observation",
+    "Explore optional drone-assisted site observation only under applicable aviation permits, approved operators, privacy safeguards and safe operating conditions."
   ]
 ];
 
