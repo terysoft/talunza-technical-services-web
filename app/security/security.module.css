@@ -90,3 +90,13 @@
 @media(max-width:1050px){.environmentGrid,.ecosystemGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.layerFlow{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:750px){.builderMain{grid-template-columns:1fr}.builderInputs{border-right:0;border-bottom:1px solid #dce7eb}.builderHeading{display:block}.builderStamp{display:inline-block;margin-top:1rem}.statusGrid{grid-template-columns:1fr}}
 @media(max-width:690px){.environmentGrid,.ecosystemGrid{grid-template-columns:1fr}.layerFlow{grid-template-columns:repeat(2,minmax(0,1fr))}.goalGrid{grid-template-columns:1fr}.resultLink{width:100%;text-align:center}.builderOutput{min-height:200px}.page .header{z-index:40}}
+
+
+/* Accessible keyboard skip and section discovery; lightweight scroll rail for narrow screens. */
+.skipLink{position:absolute;top:-120px;left:1rem;z-index:100;display:inline-block;padding:.75rem 1.1rem;border-radius:.7rem;background:#fff;color:#073d48;text-decoration:none;font-weight:900;border:2px solid #158b8e}
+.skipLink:focus-visible{position:fixed;top:.65rem;left:.65rem}
+.quickNav{display:flex;gap:.6rem;align-items:center;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin;padding:.8rem max(1.25rem,calc((100vw - 1180px)/2));background:#e7f2f2;border-bottom:1px solid #c8e0e3}
+.quickNav a{display:inline-flex;align-items:center;white-space:nowrap;flex:none;border:1px solid #b7d4d9;background:#fff;border-radius:999px;padding:.54rem .85rem;text-decoration:none;font-size:.81rem;font-weight:750;color:#164456;min-height:42px}
+.quickNav a:hover{background:#d9f4eb;border-color:#8cbdbe}
+.page section[id]{scroll-margin-top:95px}
+@media(max-width:690px){.quickNav{padding:.7rem 1rem}.quickNav a{font-size:.77rem;padding:.5rem .75rem}.page section[id]{scroll-margin-top:85px}}
