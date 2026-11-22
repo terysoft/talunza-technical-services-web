@@ -38,7 +38,7 @@ Founder directive: TALUNZA is the sole customer-facing security sector brand. An
 - External staffing: subcontractor acceptance is per job after availability, independent-work eligibility and competence check. Build alternative specialist coverage; no single-person promise.
 
 ## Verification and release checklist
-**Zero-dependency source regression gate:** Run `node scripts/security-site-contract.mjs` to check 12 service families, 16 roadmap features, 6 environments, CSS and hash links, honest status labels, TALUNZA contact, no Security prices or unapproved partner brand. This does NOT prove TypeScript or production behaviour.
+**Zero-dependency source regression gate:** Run `node scripts/security-site-contract.mjs` to check 12 service families, 20 roadmap features, 6 environments, CSS and hash links, honest status labels, TALUNZA contact, no Security prices or unapproved partner brand. This does NOT prove TypeScript or production behaviour.
 
 1. From an independently clean checkout of this branch, run `npm ci`, `npm run typecheck`, and `NEXT_PUBLIC_BASE_PATH=/technical npm run build`. No paid CI.
 2. Inspect `out/security/index.html` with the expected production base and canonical URL, then test link from Technical Services homepage. Inspect direct navigation and back route.
@@ -59,7 +59,7 @@ Founder directive: TALUNZA is the sole customer-facing security sector brand. An
 
 ## Founder end-state publishing lock — 2026-11-22
 - The entire intended TALUNZA Security catalogue is **visible** on the landing page: 12 integrated service families (physical fencing/barriers, CCTV/video, alarms/panic, access control, solar/energy, connectivity, rural/farm, industry, hazard/safety, cybersecurity, mobile assets and recurring service).
-- The advanced roadmap shows 16 targeted intelligence concepts: Guardian Correlation, AI Incident Brief, Offline Guardian, Site Pulse, Farm Guardian, Evidence Vault, Multi-Site Command, Security Digital Twin, Predictive Maintenance, Smart Verification, Privacy-Safe Review, Adaptive Communications, Safe Deterrence, Guardian Timeline, Technician Copilot and Incident Drill Simulator. **None are claimed to be deployed.**
+- The advanced roadmap now shows 20 targeted intelligence concepts: Guardian Correlation, AI Incident Brief, Offline Guardian, Site Pulse, Farm Guardian, Evidence Vault, Multi-Site Command, Security Digital Twin, Predictive Maintenance, Smart Verification, Privacy-Safe Review, Adaptive Communications, Safe Deterrence, Guardian Timeline, Technician Copilot and Incident Drill Simulator. **None are claimed to be deployed.**
 - The homepage route is linked to `/security/` from Technical Services, retaining `/technical/security/` as canonical production intent.
 - A new `SecurityBlueprintBuilder.tsx` provides a real client-side, non-AI rule-based preliminary concept tool by property and priorities; choices remain local to the browser until the user deliberately opens WhatsApp with the selected concerns. It never requests address, passwords or private security diagrams; it does not save a quote or produce a certified engineering plan.
 - Six customer contexts: home, shop/office, farm/remote, school/institution, industrial/warehouse, hospitality; cross-links explain Energy, Connect, Forge, Works, Capture and Track/FarmOps authority, not duplicated backend workflows.
@@ -75,3 +75,14 @@ The founder's whole-account audit recovered an October concept for maintenance a
 - Customer consent, tenant isolation and qualified technical sign-off remain mandatory; no auto reminder, uptime, security response SLA or untested device interoperability is claimed.
 - Source regression contract asserts section and no false uptime claims. This is a source-only web change, not a production feature or recurring paid plan.
 - Canonical Control dated account-history ledger: `terysoft/talunza-control/operations/2026-11-22-account-history-reconciliation.md` (merged in Control main).
+
+## 2026-11-22 historical security research integration
+Source read: historical [16 Aug 2026 technology-first security design](https://github.com/terysoft/mari-technologies/blob/main/research/technology-first-security-platform.md), originally labelled **Research/WATCH→EXPERIMENT**, **not a deployed product**. Earlier 10 Jul and 24 Sep **2025** account conversations had already selected CCTV/alarms/networking/access/ESP32/smart irrigation and a superseded TechShield business concept; TALUNZA Security is the **current** company-level brand.
+
+Four previously underexposed end-state capabilities were added to the Security public source (20 current roadmap cards):
+1. **Human Escalation & Acknowledgement:** authorised contact/response routing and reviewed close-out; licensed response partner if appropriate, never implied rapid response SLA.
+2. **Authorised Sale-to-Camera Bookmark:** stable timestamp/evidence reference from a Business event to permitted CCTV interval; keep Business financial truth separate from Security footage/access.
+3. **False-Alarm Learning:** human-labelled animal/weather/work/test/defect reasons; changes to sensors/permissions only after approved safe rules.
+4. **Regulated Aerial Observation:** optional long-horizon drone observation only with current CAAZ/airspace/aviation permissions, qualified operators and privacy. Not current service.
+
+Also strengthened Site Pulse to treat missed device heartbeats as a fault candidate and Smart Verification to require appropriate independent signal corroboration. No hardware implementation, backend, personal surveillance, private site data or production deployment is established by these changes.
