@@ -66,3 +66,12 @@ Founder directive: TALUNZA is the sole customer-facing security sector brand. An
 - Public page distinguishes enquiry now, specialist/site-specific work and future roadmap. Its complete vision is separate from implementation/field evidence, not an assertion that all products are operational.
 - **LOCKED company-wide doctrine:** `terysoft/talunza-kernel/docs/governance/public-end-state-presentation-standard-v1.md` (now merged in Kernel main (former PR #33)).
 - This is a SOURCE-IMPLEMENTED candidate. Required checks: `npm ci`, `npm run typecheck`, `NEXT_PUBLIC_BASE_PATH=/technical npm run build`, mobile and route smoke, main-vs-PR rebase, approved deployment and live external verification.
+
+
+## 2026-11-22 account-history reuse — ServiceCare (no new app)
+The founder's whole-account audit recovered an October concept for maintenance after every installation. **Do not create a separate TALUNZA CARE application or duplicate Works/Business records.** `terysoft/talunza-field/docs/product/servicecare-asset-lifecycle-v0.md` already documents a limited offline asset/maintenance planning prototype. The Security public end-state now includes a truthful "TALUNZA CARE · THE NEXT CHAPTER" section showing owner-approved asset identity and test evidence, reviewed maintenance planning and learning from verified repairs.
+- Works owns job/asset approval, contractor assignment, handover, maintenance and customer interaction; qualification/regulated work require external or Compliance evidence.
+- Field ServiceCare owns only review-required asset maintenance draft; Capture source evidence; Business accepted monetary truth.
+- Customer consent, tenant isolation and qualified technical sign-off remain mandatory; no auto reminder, uptime, security response SLA or untested device interoperability is claimed.
+- Source regression contract asserts section and no false uptime claims. This is a source-only web change, not a production feature or recurring paid plan.
+- Canonical Control dated account-history ledger: `terysoft/talunza-control/operations/2026-11-22-account-history-reconciliation.md` (merged in Control main).
