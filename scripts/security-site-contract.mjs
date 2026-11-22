@@ -60,6 +60,10 @@ assert(page.includes('Skip to security solutions') && page.includes('Jump to Sec
 assert(css.includes('.skipLink:focus-visible') && css.includes('.quickNav') && css.includes('scroll-margin-top'),
   'Skip link focus, mobile navigation, and anchor offset styles must exist');
 assert(page.includes('id="questions"') && css.includes('.faqList'), 'Native FAQ and styles must be present');
+assert(page.includes('id="aftercare"') && page.includes('Field ServiceCare prototype'),
+  'Account-recovered maintenance lifecycle must remain visible with truthful status');
+assert(page.includes('No automated reminders, guaranteed uptime or unattended monitoring'),
+  'Maintenance roadmap must not promise unimplemented operations');
 assert((page.match(/<summary>/g) || []).length >= 6, 'Need at least six customer FAQs');
 assert(page.includes('Remote viewing and cloud notifications cannot be guaranteed') &&
   page.includes('Not as an advertised operational service'), 'Must distinguish offline limitations and response licensing');
