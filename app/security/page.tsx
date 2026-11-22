@@ -289,6 +289,7 @@ const steps = [
 export default function SecurityPage() {
   return (
     <main className={styles.page}>
+      <a className={styles.skipLink} href="#solutions">Skip to security solutions</a>
       <header className={styles.header}>
         <a href={base + '/'} className={styles.brand} aria-label="TALUNZA Technical Services">
           <img src={base + '/talunza-logo.svg'} alt="TALUNZA" />
@@ -307,7 +308,7 @@ export default function SecurityPage() {
         <div className={styles.heroInner}>
           <p className={styles.eyebrow}>TALUNZA SECURITY · CHIREDZI & LOWVELD</p>
           <h1>Protect what matters.<br /><span>Connect every layer.</span><br />Build for tomorrow.</h1>
-          <p className={styles.lead}>A complete security vision under one TALUNZA service: fencing, cameras, alarms, access, solar power, networking, cybersecurity, rural protection and intelligent systems that can eventually work together.</p>
+          <p className={styles.lead}>A complete TALUNZA Security offering: fencing, cameras, alarms, access, solar power, networking, cybersecurity, rural protection and a clearly labelled future intelligent platform. Every project is scoped and verified.</p>
           <div className={styles.actions}>
             <a className={styles.primary} href={contact}>Request a security assessment</a>
             <a className={styles.ghost} href="#solutions">Explore security solutions</a>
@@ -327,6 +328,15 @@ export default function SecurityPage() {
           <p className={styles.panelFoot}>We publish the full intended capability so customers can plan ambitious projects. Every actual delivery depends on site assessment, compatible hardware, qualified people and verification.</p>
         </div>
       </section>
+
+      <nav className={styles.quickNav} aria-label="Jump to Security sections">
+        <a href="#solutions">All services</a>
+        <a href="#blueprint">Free blueprint</a>
+        <a href="#environments">Property types</a>
+        <a href="#vision">Intelligent future</a>
+        <a href="#ecosystem">TALUNZA ecosystem</a>
+        <a href="#approach">How it works</a>
+      </nav>
 
       <section className={styles.section} id="solutions">
         <div className={styles.sectionHeading}>
@@ -407,7 +417,7 @@ export default function SecurityPage() {
       </section>
 
       <section className={styles.statusBand}>
-        <div><p className={styles.kickerLight}>CLEAR DELIVERY STATUS</p><h2>The whole vision is visible. Delivery is verified step by step.</h2></div>
+        <div><p className={styles.kickerLight}>CLEAR DELIVERY STATUS</p><h2>Explore the full vision today. Confirm delivery before installation.</h2></div>
         <div className={styles.statusGrid}>
           <article><strong>Enquire now</strong><p>Ask about any security service, request a site assessment or use the free concept builder. Scope and specialist availability are confirmed for the job.</p></article>
           <article><strong>Assessed per project</strong><p>Fencing, CCTV, power, access, sensors and integrations are matched to qualified installation, manufacturer capability, safety and local conditions.</p></article>
