@@ -119,6 +119,7 @@ export default function HomePage() {
 
       <section id="services" className="section servicesSection">
         <div className="sectionHead"><p className="eyebrow dark">WHAT WE DO</p><h2>One technical team route. Multiple practical capabilities.</h2><p>Start with the problem. We choose the correct combination of trade skill, equipment, software, fabrication or specialist support needed to solve it.</p></div>
+        <div className="evidenceBox"><strong>NEW SECTOR · TALUNZA SECURITY</strong><p>Electric fencing, CCTV, alarms, gate/access systems, resilient power and smart-security integration tailored to the site. <a className="textLink" href={assetBase + '/security/'}>Explore TALUNZA Security →</a></p></div>
         <div className="serviceGrid">{serviceGroups.map((group) => <article className="serviceCard" key={group.title}><p className="cardKicker">{group.kicker}</p><h3>{group.title}</h3><p>{group.copy}</p><ul>{group.items.map((item) => <li key={item}>{item}</li>)}</ul><a href={wa(`Hello Talunza. I need help with ${group.title.toLowerCase()}. My location is: ____. The problem is: ____.`)}>Ask about this service →</a></article>)}</div>
       </section>
 
