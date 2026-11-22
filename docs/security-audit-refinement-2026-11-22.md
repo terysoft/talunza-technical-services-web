@@ -48,7 +48,7 @@ A fresh GitHub source readback and independently executed read-only JavaScript i
 - no localStorage, sessionStorage, fetch/XHR or beacon in the client-only form;
 - form includes real preliminary recommendations in WhatsApp handoff, without auto-sending;
 - eight supported goal recommendations; worst-case synthesized WhatsApp content approximately 1,196 characters.
-These are SOURCE introspection checks, **not a run of the checked-in Node test script, Next typecheck, static export, or browser interaction**.
+These are SOURCE introspection checks, **not a Node runtime build, Next typecheck, static export, or browser interaction**. As an additional verification, the **actual checked-in source-contract logic was executed under an isolated JavaScript runtime with virtual file reads using freshly fetched GitHub file contents**. It returned `TALUNZA SECURITY SOURCE CONTRACT: PASS` with no reported failures. This validates script logic against the repository sources, but the owning checkout must still run `node scripts/security-site-contract.mjs` normally.
 
 ## Required no-cost pre-release commands (clean workspace, after integration)
 1. `npm ci` — dependency resolution must be controlled by reconciled package/lockfile; fail instead of rewriting unrelated dependency trees.
