@@ -37,6 +37,9 @@ const environments = dataArray('environments', 'layerSteps');
 assert(offerings.length === 12, 'Security must show all 12 service families');
 assert(innovations.length === 16, 'Security must show all 16 future intelligent features');
 assert(environments.length === 6, 'Security should show six customer contexts');
+assert(new Set(offerings.map((x) => x.label)).size === 12, 'Service family labels must be unique');
+assert(new Set(innovations.map((x) => x[0])).size === 16, 'Roadmap capability labels must be unique');
+assert(new Set(environments.map((x) => x.type)).size === 6, 'Property environments must be distinct');
 assert(offerings.every((x) => x.label && x.title && x.description && Array.isArray(x.examples) && x.examples.length >= 3),
   'Every service family must provide title, description and concrete examples');
 assert(innovations.every((x) => Array.isArray(x) && x.length === 2 && x.every(Boolean)),
@@ -52,13 +55,26 @@ for (const hash of [...page.matchAll(/href="#([^"]+)"/g)].map((x) => x[1])) {
 
 assert(page.includes("https://talunza.co.zw/technical/security/"), 'Canonical Security URL missing');
 assert(technicalHome.includes("Explore TALUNZA Security"), 'Technical site entry link missing');
+assert(page.includes('Skip to security solutions') && page.includes('Jump to Security sections'),
+  'Keyboard skip and mobile quick navigation must exist');
+assert(css.includes('.skipLink:focus-visible') && css.includes('.quickNav') && css.includes('scroll-margin-top'),
+  'Skip link focus, mobile navigation, and anchor offset styles must exist');
+assert(page.includes('id="vision"') && page.includes('id="ecosystem"') && page.includes('id="blueprint"'),
+  'End-state, integrated ecosystem and interactive tool must be discoverable');
 for (const label of ['Enquire now','Assessed per project','Under development']) {
   assert(page.includes(label), 'Customer status label missing: ' + label);
 }
 assert(page.includes("SecurityBlueprintBuilder"), 'Interactive concept builder must be rendered');
 assert(builder.includes("useState") && builder.includes("Generate my concept"), 'Builder interaction missing');
+assert(builder.includes('aria-controls="security-blueprint-output"'), 'Builder button must identify result region');
+assert(builder.includes('role="status"') && builder.includes('aria-live="polite"'), 'Builder needs concise accessible status');
+assert(builder.includes('summary.map((item, index)') && builder.includes('Preliminary considerations:'),
+  'WhatsApp handoff must include the generated plan, not just selected priorities');
+assert(builder.includes('showPlan ?') && builder.includes('setShowPlan(false)'), 'Builder must clear stale results after edits');
+assert(builder.includes('siteExtras[site]'), 'Builder must include property-specific advice');
+assert(builder.includes('checked={chosen.includes(goal)}'), 'Goals must remain controlled and accessible');
 assert(builder.includes("wa.me/263777323918") && page.includes("wa.me/263777323918"), 'TALUNZA contact handoff missing');
-assert(builder.includes('deliberately share'), 'Local-only disclosure missing');
+assert(builder.includes('deliberately open WhatsApp') && builder.includes('confirm it inside WhatsApp'), 'Consent and send-state disclosure missing');
 assert(!/(?:\bUSD\b|US\$|\$\d+|\bpricing\b|\bprice\b)/i.test(page + builder),
   'No Security prices may appear on the public customer page');
 assert(!/(?:localStorage|sessionStorage|fetch\(|XMLHttpRequest|sendBeacon)/.test(builder),
