@@ -336,6 +336,7 @@ export default function SecurityPage() {
         <a href="#vision">Intelligent future</a>
         <a href="#ecosystem">TALUNZA ecosystem</a>
         <a href="#approach">How it works</a>
+        <a href="#questions">FAQs</a>
       </nav>
 
       <section className={styles.section} id="solutions">
@@ -437,6 +438,40 @@ export default function SecurityPage() {
         <div className={styles.note}>
           <strong>Safety, privacy and honest availability matter.</strong>
           <p>Electric-fence and electrical work must meet applicable rules and competent installation requirements. CCTV and remote access require permission, protected credentials, sensible retention and privacy safeguards. TALUNZA does not advertise a staffed 24-hour response or guarding service at this stage.</p>
+        </div>
+      </section>
+
+      <section className={styles.section} id="questions" aria-labelledby="security-questions-title">
+        <div className={styles.sectionHeading}>
+          <p className={styles.kicker}>PRACTICAL ANSWERS</p>
+          <h2 id="security-questions-title">Before planning your security system.</h2>
+          <p>Security is site-specific. These answers explain what works today, what depends on compatible equipment, and how TALUNZA treats your property information.</p>
+        </div>
+        <div className={styles.faqList}>
+          <details>
+            <summary>Will my security still work when internet access fails?</summary>
+            <p>Properly designed local alarms, camera recorders and manual overrides can keep operating without internet, provided their local power and equipment are working. Remote viewing and cloud notifications cannot be guaranteed during an outage.</p>
+          </details>
+          <details>
+            <summary>Can existing CCTV cameras and electric fences be connected?</summary>
+            <p>Sometimes. We first check the specific controller, recorder, camera models, firmware and available interfaces. An existing device may support only some integrations, or none safely.</p>
+          </details>
+          <details>
+            <summary>Can you arrange electric fencing or another specialist installation?</summary>
+            <p>We assess the request and coordinate with appropriately qualified, available specialists for the agreed work. We do not promise any one person will be available for every project.</p>
+          </details>
+          <details>
+            <summary>Are Guardian AI, remote monitoring and multi-site command available now?</summary>
+            <p>These are part of the published TALUNZA Security end-state vision. Software and hardware capabilities are introduced only after development, testing, safety and privacy review. We do not currently claim a live AI security control centre.</p>
+          </details>
+          <details>
+            <summary>Do you provide security guards or emergency response?</summary>
+            <p>Not as an advertised operational service at this stage. Guarding, managed monitoring and formal emergency response require verified licences, trained personnel, agreements and appropriate response capacity.</p>
+          </details>
+          <details>
+            <summary>How will security footage and private property details be handled?</summary>
+            <p>Access should be limited to authorised people, with purpose-based recording, protected credentials and appropriate retention. We do not need camera passwords, precise security layouts or private footage in an initial public enquiry.</p>
+          </details>
         </div>
       </section>
 
