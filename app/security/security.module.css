@@ -50,7 +50,7 @@
 .goalFieldset{border:0;margin:1.5rem 0 1rem;padding:0;min-width:0}
 .goalGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem}
 .goalOption{border:1px solid #dae6ea;border-radius:.7rem;padding:.65rem .75rem;display:flex;align-items:start;gap:.55rem;background:#f8fbfc;cursor:pointer;font-size:.81rem;font-weight:700;color:#244859;line-height:1.4}
-.goalOption:has(input:checked){background:#dff4ed;border-color:#76bea8}
+.goalSelected{background:#dff4ed;border-color:#76bea8}
 .goalOption input{margin:.15rem 0 0;accent-color:#127f73;flex:none;width:16px;height:16px}
 .generate{border:0;background:#0c5861;color:#fff;border-radius:999px;padding:.9rem 1.4rem;font:inherit;font-weight:850;cursor:pointer;min-height:48px;margin:.3rem 0}
 .generate:hover{background:#0b3f48}
