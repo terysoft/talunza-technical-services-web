@@ -59,6 +59,10 @@ assert(page.includes('Skip to security solutions') && page.includes('Jump to Sec
   'Keyboard skip and mobile quick navigation must exist');
 assert(css.includes('.skipLink:focus-visible') && css.includes('.quickNav') && css.includes('scroll-margin-top'),
   'Skip link focus, mobile navigation, and anchor offset styles must exist');
+assert(page.includes('id="questions"') && css.includes('.faqList'), 'Native FAQ and styles must be present');
+assert((page.match(/<summary>/g) || []).length >= 6, 'Need at least six customer FAQs');
+assert(page.includes('Remote viewing and cloud notifications cannot be guaranteed') &&
+  page.includes('Not as an advertised operational service'), 'Must distinguish offline limitations and response licensing');
 assert(page.includes('id="vision"') && page.includes('id="ecosystem"') && page.includes('id="blueprint"'),
   'End-state, integrated ecosystem and interactive tool must be discoverable');
 for (const label of ['Enquire now','Assessed per project','Under development']) {
@@ -73,6 +77,8 @@ assert(builder.includes('summary.map((item, index)') && builder.includes('Prelim
 assert(builder.includes('showPlan ?') && builder.includes('setShowPlan(false)'), 'Builder must clear stale results after edits');
 assert(builder.includes('siteExtras[site]'), 'Builder must include property-specific advice');
 assert(builder.includes('checked={chosen.includes(goal)}'), 'Goals must remain controlled and accessible');
+assert(builder.includes('styles.goalSelected') && css.includes('.goalSelected'),
+  'Selected priorities must have an explicit state that works on older Android browsers');
 assert(builder.includes("wa.me/263777323918") && page.includes("wa.me/263777323918"), 'TALUNZA contact handoff missing');
 assert(builder.includes('deliberately open WhatsApp') && builder.includes('confirm it inside WhatsApp'), 'Consent and send-state disclosure missing');
 assert(!/(?:\bUSD\b|US\$|\$\d+|\bpricing\b|\bprice\b)/i.test(page + builder),
