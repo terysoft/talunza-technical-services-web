@@ -300,7 +300,7 @@ export default function SecurityPage() {
           <a href="#blueprint">Build a concept</a>
           <a href="#vision">End-state</a>
           <a href="#approach">Our approach</a>
-          <a className={styles.navAction} href={contact}>Request assessment</a>
+          <a className={styles.navAction} href={contact} aria-label="Request a TALUNZA Security assessment">Get help</a>
         </nav>
       </header>
 
