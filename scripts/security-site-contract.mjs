@@ -38,7 +38,7 @@ assert(offerings.length === 12, 'Security must show all 12 service families');
 assert(innovations.length === 20, 'Security must show all 20 future intelligent features');
 assert(environments.length === 6, 'Security should show six customer contexts');
 assert(new Set(offerings.map((x) => x.label)).size === 12, 'Service family labels must be unique');
-assert(new Set(innovations.map((x) => x[0])).size === 16, 'Roadmap capability labels must be unique');
+assert(new Set(innovations.map((x) => x[0])).size === 20, 'Roadmap capability labels must be unique');
 assert(new Set(environments.map((x) => x.type)).size === 6, 'Property environments must be distinct');
 assert(offerings.every((x) => x.label && x.title && x.description && Array.isArray(x.examples) && x.examples.length >= 3),
   'Every service family must provide title, description and concrete examples');
