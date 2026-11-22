@@ -38,6 +38,8 @@ Founder directive: TALUNZA is the sole customer-facing security sector brand. An
 - External staffing: subcontractor acceptance is per job after availability, independent-work eligibility and competence check. Build alternative specialist coverage; no single-person promise.
 
 ## Verification and release checklist
+**Zero-dependency source regression gate:** Run `node scripts/security-site-contract.mjs` to check 12 service families, 16 roadmap features, 6 environments, CSS and hash links, honest status labels, TALUNZA contact, no Security prices or unapproved partner brand. This does NOT prove TypeScript or production behaviour.
+
 1. From an independently clean checkout of this branch, run `npm ci`, `npm run typecheck`, and `NEXT_PUBLIC_BASE_PATH=/technical npm run build`. No paid CI.
 2. Inspect `out/security/index.html` with the expected production base and canonical URL, then test link from Technical Services homepage. Inspect direct navigation and back route.
 3. Mobile Android visual check; tab order and keyboard focus; reduced motion; no prices in `app/security/`; no dead CTAs.
@@ -62,5 +64,5 @@ Founder directive: TALUNZA is the sole customer-facing security sector brand. An
 - A new `SecurityBlueprintBuilder.tsx` provides a real client-side, non-AI rule-based preliminary concept tool by property and priorities; choices remain local to the browser until the user deliberately opens WhatsApp with the selected concerns. It never requests address, passwords or private security diagrams; it does not save a quote or produce a certified engineering plan.
 - Six customer contexts: home, shop/office, farm/remote, school/institution, industrial/warehouse, hospitality; cross-links explain Energy, Connect, Forge, Works, Capture and Track/FarmOps authority, not duplicated backend workflows.
 - Public page distinguishes enquiry now, specialist/site-specific work and future roadmap. Its complete vision is separate from implementation/field evidence, not an assertion that all products are operational.
-- **LOCKED company-wide doctrine:** `terysoft/talunza-kernel/docs/governance/public-end-state-presentation-standard-v1.md` (in companion Kernel PR #33).
+- **LOCKED company-wide doctrine:** `terysoft/talunza-kernel/docs/governance/public-end-state-presentation-standard-v1.md` (now merged in Kernel main (former PR #33)).
 - This is a SOURCE-IMPLEMENTED candidate. Required checks: `npm ci`, `npm run typecheck`, `NEXT_PUBLIC_BASE_PATH=/technical npm run build`, mobile and route smoke, main-vs-PR rebase, approved deployment and live external verification.
