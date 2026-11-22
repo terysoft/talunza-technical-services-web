@@ -431,6 +431,9 @@ export default function SecurityPage() {
           <article><strong>TALUNZA Works</strong><span>Authorised jobs, specialist assignment, quality checks and maintenance</span></article>
           <article><strong>TALUNZA Capture</strong><span>Controlled inspection evidence, fault documentation and handovers</span></article>
           <article><strong>TALUNZA Track / FarmOps</strong><span>Relevant owner-approved mobile assets and farm infrastructure context</span></article>
+          <article><strong>TALUNZA Living</strong><span>Owner-approved smart-home, property access and household technology retrofits with safe manual control</span></article>
+          <article><strong>TALUNZA Business</strong><span>Permissioned transaction timestamps for security incident evidence, without copying the financial ledger</span></article>
+          <article><strong>TALUNZA Academy</strong><span>Technician learning and verified field practice; not automatic accreditation or regulated-work certification</span></article>
         </div>
       </section>
 
