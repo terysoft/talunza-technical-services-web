@@ -335,6 +335,7 @@ export default function SecurityPage() {
         <a href="#environments">Property types</a>
         <a href="#vision">Intelligent future</a>
         <a href="#ecosystem">TALUNZA ecosystem</a>
+        <a href="#aftercare">Aftercare</a>
         <a href="#approach">How it works</a>
         <a href="#questions">FAQs</a>
       </nav>
@@ -414,6 +415,35 @@ export default function SecurityPage() {
           <article><strong>TALUNZA Works</strong><span>Authorised jobs, specialist assignment, quality checks and maintenance</span></article>
           <article><strong>TALUNZA Capture</strong><span>Controlled inspection evidence, fault documentation and handovers</span></article>
           <article><strong>TALUNZA Track / FarmOps</strong><span>Relevant owner-approved mobile assets and farm infrastructure context</span></article>
+        </div>
+      </section>
+
+      <section className={styles.section} id="aftercare">
+        <div className={styles.sectionHeading}>
+          <p className={styles.kicker}>TALUNZA CARE · THE NEXT CHAPTER</p>
+          <h2>Protection should not end when installation is finished.</h2>
+          <p>Our proposed cross-sector service lifecycle connects safe commissioning, installed-equipment records, repairs and planned maintenance. It builds on the existing TALUNZA Field ServiceCare prototype rather than creating a separate security maintenance platform.</p>
+        </div>
+        <div className={styles.environmentGrid}>
+          <article className={styles.environmentCard}>
+            <p className={styles.cardLabel}>01 / DOCUMENT</p>
+            <h3>Know what was installed.</h3>
+            <p>With owner permission, retain applicable equipment identity, approved installation scope, relevant test results and warranty or service responsibility in the authorised system.</p>
+          </article>
+          <article className={styles.environmentCard}>
+            <p className={styles.cardLabel}>02 / MAINTAIN</p>
+            <h3>Plan inspections and repairs.</h3>
+            <p>A technician can review a real asset's maintenance history and propose follow-up work. Due dates must come from verified evidence or be labelled unknown.</p>
+          </article>
+          <article className={styles.environmentCard}>
+            <p className={styles.cardLabel}>03 / IMPROVE</p>
+            <h3>Learn from actual failures.</h3>
+            <p>Record accepted fault causes, approved repairs and handover outcomes so future upgrades can be better informed. AI suggestions never certify physical safety.</p>
+          </article>
+        </div>
+        <div className={styles.note}>
+          <strong>End-state integration, not an active subscription promise.</strong>
+          <p>Works remains responsible for jobs and maintenance approvals; Field ServiceCare provides a limited draft-planning prototype; Capture holds authorised source evidence and Business records financial truth. No automated reminders, guaranteed uptime or unattended monitoring are claimed operational here.</p>
         </div>
       </section>
 
