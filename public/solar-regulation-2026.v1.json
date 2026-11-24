@@ -1,0 +1,120 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "talunza-technical-solar-regulations-2026",
+  "documentType": "PUBLIC_EDUCATIONAL_SOURCE_MANIFEST",
+  "status": "DRAFT_NOT_LIVE",
+  "asOf": "2026-11-24",
+  "jurisdiction": "ZW",
+  "publisher": "TALUNZA Technical Services",
+  "governmentAffiliation": false,
+  "purpose": "Dated source list and non-binding public education only. Not an official ZERA dataset or machine-readable compliance verdict.",
+  "notForAutomatedComplianceDecisions": true,
+  "primaryGuidePath": "/technical/solar/guide/",
+  "sources": [
+    {
+      "id": "ZERA_PORTAL",
+      "kind": "OFFICIAL_PORTAL",
+      "url": "https://solarprs.zera.co.zw/",
+      "description": "Official solar product-model registration system"
+    },
+    {
+      "id": "ZERA_HOME",
+      "kind": "OFFICIAL_REGULATOR",
+      "url": "https://www.zera.co.zw/",
+      "description": "Regulator contact and current official resources"
+    },
+    {
+      "id": "ZIMLII_INDEX",
+      "kind": "LEGAL_INDEX",
+      "url": "https://zimlii.org/",
+      "description": "Lists SI 187 of 2026 published 20 November 2026; full final text not reviewed"
+    },
+    {
+      "id": "HERALD_2026_11_24",
+      "kind": "SECONDARY_REPORTING",
+      "url": "https://www.heraldonline.co.zw/zera-to-licence-solar-installers-enforce-quality-checks-under-new-regulations/",
+      "description": "Reports licence fees, six-month transition and warranty minima"
+    },
+    {
+      "id": "SI126_UPLOADED",
+      "kind": "PRIMARY_LAW_FROM_USER_UPLOAD",
+      "url": null,
+      "description": "SI 126/2026 §§3–6, PDF pages 1–2, available in founder-supplied research upload; not distributed from this website"
+    }
+  ],
+  "claims": [
+    {
+      "id": "SI187_EXISTENCE",
+      "kind": "LEGAL_IDENTITY",
+      "status": "INDEX_CONFIRMED",
+      "statement": "SI 187 of 2026 titled Energy Regulatory (Solar Products and Installation) Regulations was published on 20 November 2026",
+      "sources": [
+        "ZIMLII_INDEX"
+      ]
+    },
+    {
+      "id": "SI187_TRANSITION",
+      "kind": "IMPLEMENTATION_TIMING",
+      "status": "SECONDARY_REPORTED_PENDING_FULL_GAZETTE",
+      "statement": "Six months after publication reported, giving a derived target around 20 May 2027; verify actual commencement",
+      "sources": [
+        "HERALD_2026_11_24"
+      ]
+    },
+    {
+      "id": "SI187_WARRANTY_MINIMA",
+      "kind": "CONSUMER_WARRANTY",
+      "status": "SECONDARY_REPORTED_PENDING_FULL_GAZETTE",
+      "statement": "Reported minima: 10 years solar modules; 5 years lithium batteries and solar water heaters; 2 years inverters, charge controllers and home solar kits; 1 year lead-acid batteries",
+      "sources": [
+        "HERALD_2026_11_24"
+      ]
+    },
+    {
+      "id": "SI187_INSTALLER_TIERS",
+      "kind": "INSTALLER_CREDENTIAL",
+      "status": "SECONDARY_REPORTED_PENDING_FULL_GAZETTE",
+      "statement": "Reported solar technician licence tiers ST1 to ST4; exact eligibility and lawful work scope unverified",
+      "sources": [
+        "HERALD_2026_11_24"
+      ]
+    },
+    {
+      "id": "SI126_OWN_USE",
+      "kind": "GENERATION_REGISTRATION",
+      "status": "PRIMARY_LAW_READ",
+      "statement": "SI 126/2026 has an own-consumption preconstruction registration category from 100 kW through 10 MW and requires licensing above 10 MW; this does not exempt smaller plants from other rules",
+      "sources": [
+        "SI126_UPLOADED"
+      ]
+    },
+    {
+      "id": "PRODUCT_MODEL_VERIFICATION",
+      "kind": "PRODUCT_REGISTRATION",
+      "status": "OFFICIAL_PORTAL",
+      "statement": "Model registration information may be checked via ZERA; a model-level match does not authenticate a particular physical unit",
+      "sources": [
+        "ZERA_PORTAL"
+      ]
+    }
+  ],
+  "integrationPolicy": {
+    "isOfficialLicenceRegister": false,
+    "isOfficialProductRegister": false,
+    "publishPersonalTrainedOperatorRecords": false,
+    "useForPublicEducation": true,
+    "mayGrantProfessionalAuthority": false,
+    "mayGuaranteeManufacturerWarranty": false,
+    "requireHumanReviewForRegulatedWork": true,
+    "provenanceRule": "Preserve original source kind, date, source URL and applicability before promoting any claim"
+  },
+  "productOwners": {
+    "legalAndCrossDomainContracts": "talunza-kernel / talunza-compliance",
+    "energySystems": "talunza-energy",
+    "jobsAndHandover": "talunza-works",
+    "transactionsAndWarranties": "talunza-business",
+    "supplierEvidence": "talunza-procurement",
+    "privateFieldEvidence": "talunza-capture",
+    "learningContent": "talunza-academy"
+  }
+}
