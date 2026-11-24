@@ -20,7 +20,7 @@ test('guide preserves official, reported and planned boundaries', () => {
     'reported regulatory figures awaiting direct final-gazette cross-check',
     'not a current licence',
     'planned or under source-level development',
-    'not an official register',
+    'not an application portal or an official register',
     'https://solarprs.zera.co.zw/',
     'https://zimlii.org/',
   ]) assert.ok(guide.includes(phrase), 'Missing source/safety phrase: ' + phrase);
