@@ -41,6 +41,9 @@ The earlier concern that the 24 November Herald article URL was unverified is su
 - At approval/release change `status` only with a dated reviewed source, then test and deploy; subsequent updates are additive/versioned, not silent reuse of stale certification facts.
 - No true live API, official ZERA sync, website form backend, warranty ledger or data-processing integration has been added.
 
+## Academy concrete draft follow-through — 2026-11-24
+[Academy PR #9](https://github.com/terysoft/talunza-academy/pull/9) now contains a five-unit **source-only, unreviewed adult solar consumer-literacy proposal** with independently answered, delayed retention and transfer prompts, and source/authority gates. Its base is Academy foundation PR #1, not the Energy Lab PR #2; no app catalogue edit or course launch is claimed. The public site guide must not link to a non-deployed learner experience or imply ZERA accreditation. Add an Academy course URL only after review and live verification.
+
 ## Domain integration — requests only, no new data ownership
 Energy: equipment technical facts and system assessment; Works: work-order/test/handover responsibility; Capture: private source/evidence with consent; Business: purchase/stock/receipt/warranty commercial truth; Procurement: supplier provenance; Compliance: qualifications/instruments applicability; Academy: reviewed courses and educational lab; Kernel: contracts and audit.
 A future UI may show a **private** asset passport by referencing these owners with permission. Do not expose home addresses, serial numbers, private invoices, trainee contact data or proprietary supplier costs through public source manifest.
