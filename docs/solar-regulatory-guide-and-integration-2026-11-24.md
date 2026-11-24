@@ -25,6 +25,14 @@ Remote branches/PRs are not equivalent to founder laptop uncommitted files; actu
 - Never convert the legal reporting table into a TALUNZA sales warranty. Check actual seller/manufacturer terms before an offer.
 - Source index and full corpus: [Kernel research draft PR #36](https://github.com/terysoft/talunza-kernel/pull/36), [Energy field-readiness PR #3](https://github.com/terysoft/talunza-energy/pull/3), [Compliance evidence PR #1](https://github.com/terysoft/talunza-compliance/pull/1). Institutional guide handoff: [Documents draft PR #26](https://github.com/terysoft/talunza-documents/pull/26). Their status is OPEN/DRAFT, not merged.
 
+## External citation recheck — 2026-11-24
+During a follow-up audit the source link was questioned because both **23 November** and **24 November** Herald stories exist. Fresh indexed web results on 24 November verify:
+- [23 November report](https://www.heraldonline.co.zw/zera-to-license-solar-installers-under-new-regulations/) — shorter article.
+- [24 November detailed report](https://www.heraldonline.co.zw/zera-to-license-solar-installers-enforce-quality-checks-under-new-regulations/) — a valid URL with detailed reported tier fees, warranties, registration and handover obligations; matches this draft guide's source title/date and **does not need replacing**.
+- [ZimLII legislation index](https://zimlii.org/) displays SI187/2026 dated 20 November, but the final gazetted instrument's clauses/schedules remain **not directly inspected**. Indexed snippets and article contents are reporting, not legal-text verification.
+
+The earlier concern that the 24 November Herald article URL was unverified is superseded by this check. A site visitor must still see the secondary-source limitation and no promise of an actual TALUNZA product warranty or licence.
+
 ## Public source-manifest semantics
 - `documentType=PUBLIC_EDUCATIONAL_SOURCE_MANIFEST`, `status=DRAFT_NOT_LIVE` while unapproved, `asOf` pinned to actual research date; `governmentAffiliation=false`, `notForAutomatedComplianceDecisions=true`.
 - Each claim has `id`, `kind`, `status`, `statement`, `sources`; source records carry `id`, `kind`, `url`, `description`. `null` URL for uploaded primary law is intentional: do not invent a public PDF URL.
